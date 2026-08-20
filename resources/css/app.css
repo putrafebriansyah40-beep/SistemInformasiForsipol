@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
+  
+  --color-secondary-50: #fdfbf7;
+  --color-secondary-100: #fbf5eb;
+  --color-secondary-200: #f5ead2;
+  --color-secondary-300: #eed5a9;
+  --color-secondary-400: #e5ba77;
+  --color-secondary-500: #dba14e;
+  --color-secondary-600: #ce873a;
+  --color-secondary-700: #ac682e;
+  --color-secondary-800: #8a532a;
+  --color-secondary-900: #6f4424;
+  --color-secondary-950: #3f2311;
+  
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary-600 to-secondary-400;
+  }
+  
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-lg shadow-gray-200/50;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/60 shadow-xl shadow-gray-200/50 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/60 hover:-translate-y-1;
+  }
+  
+  .navbar-floating {
+    @apply mt-4 mx-4 md:mx-8 rounded-2xl border border-white/50 bg-white/70 backdrop-blur-lg shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
+  }
+  
+  .nav-link-liquid {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  
+  .nav-link-liquid::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-500 transition-all duration-300 ease-out rounded-full opacity-0;
+  }
+  
+  .nav-link-liquid:hover::after,
+  .nav-link-liquid.active::after {
+    @apply w-3/4 opacity-100;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
