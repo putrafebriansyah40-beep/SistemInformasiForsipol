@@ -1,12 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Bayar Uang Kas
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="mb-2">
+                <h2 class="font-bold text-2xl text-gray-800 leading-tight">
+                    Bayar Uang Kas
+                </h2>
+            </div>
 
             {{-- Info Rekening Bendahara --}}
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl shadow-sm text-white p-6 lg:p-8 relative overflow-hidden">
@@ -53,7 +52,7 @@
                                 {{-- Bulan --}}
                                 <div>
                                     <label for="bulan" class="block text-sm font-medium text-gray-700">Untuk Pembayaran Bulan <span class="text-red-500">*</span></label>
-                                    <select name="bulan" id="bulan" required class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                                    <select name="bulan" id="bulan" required class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 py-3 px-4 text-base">
                                         @foreach($bulanNames as $key => $name)
                                             <option value="{{ $key }}" {{ old('bulan', now()->month) == $key ? 'selected' : '' }}>{{ $name }}</option>
                                         @endforeach
@@ -64,7 +63,7 @@
                                 {{-- Tahun --}}
                                 <div>
                                     <label for="tahun" class="block text-sm font-medium text-gray-700">Tahun <span class="text-red-500">*</span></label>
-                                    <input type="number" name="tahun" id="tahun" value="{{ old('tahun', now()->year) }}" min="2020" max="2099" required class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                                    <input type="number" name="tahun" id="tahun" value="{{ old('tahun', now()->year) }}" min="2020" max="2099" required class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 py-3 px-4 text-base">
                                     @error('tahun') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                                 </div>
                             </div>

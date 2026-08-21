@@ -1,12 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Pengaturan Rekening Bendahara
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6">
+                <h2 class="font-bold text-2xl text-gray-800 leading-tight">
+                    Pengaturan Rekening Bendahara
+                </h2>
+            </div>
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div class="p-6 sm:p-8">
                     @if(session('success'))
@@ -28,21 +27,21 @@
                         <div>
                             <label for="nama_bank" class="block text-sm font-medium text-gray-700">Nama Bank <span class="text-red-500">*</span></label>
                             <input type="text" name="nama_bank" id="nama_bank" value="{{ old('nama_bank', $user->nama_bank) }}" required placeholder="Contoh: Bank Syariah Indonesia (BSI)"
-                                   class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                                   class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 py-3 px-4 text-base">
                             @error('nama_bank') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                         </div>
 
                         <div>
                             <label for="rekening_bank" class="block text-sm font-medium text-gray-700">Nomor Rekening <span class="text-red-500">*</span></label>
                             <input type="text" name="rekening_bank" id="rekening_bank" value="{{ old('rekening_bank', $user->rekening_bank) }}" required placeholder="Contoh: 1234567890"
-                                   class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                                   class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 py-3 px-4 text-base">
                             @error('rekening_bank') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                         </div>
 
                         <div>
                             <label for="atas_nama_bank" class="block text-sm font-medium text-gray-700">Atas Nama <span class="text-red-500">*</span></label>
                             <input type="text" name="atas_nama_bank" id="atas_nama_bank" value="{{ old('atas_nama_bank', $user->atas_nama_bank) }}" required placeholder="Contoh: Fulan bin Fulan"
-                                   class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                                   class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 py-3 px-4 text-base">
                             @error('atas_nama_bank') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                         </div>
 

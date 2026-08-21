@@ -1,12 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Presensi Kegiatan
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6">
+                <h2 class="font-bold text-2xl text-gray-800 leading-tight">
+                    Presensi Kegiatan
+                </h2>
+            </div>
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div class="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-8 text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4">
