@@ -29,14 +29,14 @@
                         <tbody class="divide-y divide-gray-200">
                             @forelse($events as $event)
                             <tr class="hover:bg-gray-50 transition">
-                                <td class="p-4 font-medium text-gray-900">{{ $event->title }}</td>
+                                <td class="p-4 font-medium text-gray-900">{{ $event->nama_kegiatan }}</td>
                                 <td class="p-4 text-gray-600">
-                                    {{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}<br>
-                                    <span class="text-xs text-gray-400">{{ \Carbon\Carbon::parse($event->time)->format('H:i') }} WIB</span>
+                                    {{ \Carbon\Carbon::parse($event->waktu_pelaksanaan)->format('d M Y') }}<br>
+                                    <span class="text-xs text-gray-400">{{ \Carbon\Carbon::parse($event->waktu_pelaksanaan)->format('H:i') }} WIB</span>
                                 </td>
-                                <td class="p-4 text-gray-600">{{ $event->location }}</td>
+                                <td class="p-4 text-gray-600">{{ $event->lokasi }}</td>
                                 <td class="p-4">
-                                    @if(\Carbon\Carbon::parse($event->date . ' ' . $event->time)->isPast())
+                                    @if(\Carbon\Carbon::parse($event->waktu_pelaksanaan)->isPast())
                                         <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-semibold">Selesai</span>
                                     @else
                                         <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs font-semibold">Akan Datang</span>

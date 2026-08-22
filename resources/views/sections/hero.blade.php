@@ -52,8 +52,13 @@
             </h1>
 
             <!-- Subtitle -->
-            <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed mb-10 animate-fade-in-up" style="animation-delay: 0.6s; opacity: 0;">
+            <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed mb-4 animate-fade-in-up" style="animation-delay: 0.6s; opacity: 0;">
                 Mewujudkan mahasiswa berkarakter Islami, berilmu, dan berakhlak mulia di lingkungan Politeknik Negeri Padang
+            </p>
+
+            <!-- Slogan -->
+            <p class="text-xl sm:text-2xl font-bold font-display text-gradient mb-10 animate-fade-in-up" style="animation-delay: 0.7s; opacity: 0;">
+                #SatuMenyatukan
             </p>
 
             <!-- CTA Buttons -->

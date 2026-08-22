@@ -119,7 +119,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="text-center reveal">
                 <div class="text-3xl sm:text-4xl font-black font-display text-white mb-2">
-                    <span class="counter" data-target="500" data-suffix="+">0</span>
+                    <span class="counter" data-target="{{ \App\Models\User::count() }}" data-suffix="">0</span>
                 </div>
                 <p class="text-primary-100 text-sm">Anggota Aktif</p>
             </div>
@@ -131,13 +131,13 @@
             </div>
             <div class="text-center reveal" style="transition-delay: 0.2s;">
                 <div class="text-3xl sm:text-4xl font-black font-display text-white mb-2">
-                    <span class="counter" data-target="15" data-suffix="+">0</span>
+                    <span class="counter" data-target="{{ date('Y') - 1998 }}" data-suffix=" Tahun">0</span>
                 </div>
-                <p class="text-primary-100 text-sm">Tahun Berdiri</p>
+                <p class="text-primary-100 text-sm">Berdiri Sejak 1998</p>
             </div>
             <div class="text-center reveal" style="transition-delay: 0.3s;">
                 <div class="text-3xl sm:text-4xl font-black font-display text-white mb-2">
-                    <span class="counter" data-target="7" data-suffix="">0</span>
+                    <span class="counter" data-target="6" data-suffix="">0</span>
                 </div>
                 <p class="text-primary-100 text-sm">Divisi Kerja</p>
             </div>

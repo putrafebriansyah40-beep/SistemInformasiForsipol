@@ -44,9 +44,6 @@
             </x-primary-button>
         </div>
         
-        <div class="mt-6 text-center text-sm text-gray-600">
-            Belum punya akun? 
-            <a href="{{ route('register') }}" class="font-bold text-secondary-600 hover:text-secondary-800 transition-colors">Daftar sekarang</a>
-        </div>
+
     </form>
 </x-guest-layout>

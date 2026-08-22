@@ -29,13 +29,13 @@
                         <tbody class="divide-y divide-gray-200">
                             @forelse($meetings as $meeting)
                             <tr class="hover:bg-gray-50 transition">
-                                <td class="p-4 font-medium text-gray-900">{{ $meeting->title }}</td>
+                                <td class="p-4 font-medium text-gray-900">{{ $meeting->nama_rapat }}</td>
                                 <td class="p-4 text-gray-600">
-                                    {{ \Carbon\Carbon::parse($meeting->datetime)->format('d M Y, H:i') }} WIB
+                                    {{ \Carbon\Carbon::parse($meeting->waktu_rapat)->format('d M Y, H:i') }} WIB
                                 </td>
                                 <td class="p-4">
                                     <span class="px-3 py-1 bg-gray-100 font-mono tracking-widest font-bold text-gray-800 rounded">
-                                        {{ $meeting->attendance_code ?? '-----' }}
+                                        {{ $meeting->kode_absen ?? '-----' }}
                                     </span>
                                 </td>
                                 <td class="p-4 text-gray-600">

@@ -28,9 +28,7 @@
 
                 <h3 class="text-2xl sm:text-3xl font-bold font-display text-gradient-gold mb-6">Visi</h3>
                 <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    "Mewujudkan mahasiswa Politeknik Negeri Padang yang <strong class="text-secondary-600">berkarakter Islami</strong>,
-                    <strong class="text-primary-600">berilmu</strong>, dan <strong class="text-secondary-600">berakhlak mulia</strong>
-                    serta menjadi wadah pembinaan keislaman yang unggul di lingkungan kampus."
+                    "Suplai Alumni yang <strong class="text-secondary-600">berafiliasi kepada islam</strong> dan optimalisasi peran kampus dalam upaya mentransformasi masyarakat menuju <strong class="text-primary-600">masyarakat madani</strong>."
                 </p>
 
                 <!-- Decorative divider -->
@@ -122,19 +120,25 @@
                         <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                             <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Menciptakan lingkungan kampus Politeknik Negeri Padang yang <strong class="text-gray-800">religius, toleran, dan kondusif</strong> bagi seluruh civitas akademika.</p>
+                        <p class="text-gray-600 leading-relaxed">Terbentuknya pribadi muslim yang <strong class="text-gray-800">kaffah</strong>.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                             <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Melahirkan kader-kader <strong class="text-gray-800">pemimpin masa depan</strong> yang memiliki integritas moral dan spiritual tinggi.</p>
+                        <p class="text-gray-600 leading-relaxed">Terwujudnya budaya <strong class="text-gray-800">saling mengajak</strong> ke arah yang lebih baik.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                             <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <p class="text-gray-600 leading-relaxed">Menjadikan FORSIPOL sebagai <strong class="text-gray-800">organisasi rujukan</strong> dalam pembinaan keislaman di tingkat politeknik se-Indonesia.</p>
+                        <p class="text-gray-600 leading-relaxed">Mensuplai alumni PNP yang <strong class="text-gray-800">berafiliasi kepada Islam</strong> setelah pasca kampus.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Terciptanya kampus PNP madani dengan <strong class="text-gray-800">suasana Islam</strong>.</p>
                     </div>
                 </div>
             </div>

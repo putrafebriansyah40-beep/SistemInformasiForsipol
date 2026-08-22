@@ -16,7 +16,8 @@
                     </div>
                 </div>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                    Forum Studi Islam Politeknik Negeri Padang — Wadah pembinaan keislaman dan pengembangan karakter mahasiswa yang religius.
+                    Forum Studi Islam Politeknik Negeri Padang — Wadah pembinaan keislaman dan pengembangan karakter mahasiswa yang religius.<br>
+                    <span class="text-primary-400 font-bold mt-2 inline-block">#SatuMenyatukan</span>
                 </p>
                 <!-- Social Media -->
                 <div class="flex gap-3">
