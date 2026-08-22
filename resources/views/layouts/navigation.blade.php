@@ -6,7 +6,10 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ url('/') }}" class="flex items-center gap-2 group">
                         <img src="{{ asset('images/logo-forsipol.png') }}" alt="Logo" class="h-10 w-10 object-contain transition-transform group-hover:scale-110">
-                        <span class="font-bold text-lg text-gradient font-display hidden sm:block">FORSIPOL</span>
+                        <div class="hidden sm:flex flex-col justify-center">
+                            <span class="font-bold text-lg text-gradient font-display leading-tight">SiSiPol</span>
+                            <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider leading-tight">Sistem Informasi Forsipol</span>
+                        </div>
                     </a>
                 </div>
 

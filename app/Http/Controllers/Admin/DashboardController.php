@@ -16,7 +16,8 @@ class DashboardController extends Controller
         $memberCount = User::where('role', 'member')->count();
         $eventCount = Event::count();
         $meetingCount = Meeting::count();
+        $user = \Illuminate\Support\Facades\Auth::user();
 
-        return view('admin.dashboard', compact('memberCount', 'eventCount', 'meetingCount'));
+        return view('admin.dashboard', compact('memberCount', 'eventCount', 'meetingCount', 'user'));
     }
 }

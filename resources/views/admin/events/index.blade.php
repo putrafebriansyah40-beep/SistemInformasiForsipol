@@ -22,6 +22,7 @@
                                 <th class="p-4">Nama Kegiatan</th>
                                 <th class="p-4">Tanggal & Waktu</th>
                                 <th class="p-4">Lokasi</th>
+                                <th class="p-4">Kode Presensi</th>
                                 <th class="p-4">Status</th>
                                 <th class="p-4">Aksi</th>
                             </tr>
@@ -36,6 +37,13 @@
                                 </td>
                                 <td class="p-4 text-gray-600">{{ $event->lokasi }}</td>
                                 <td class="p-4">
+                                    @if($event->kode_absen)
+                                        <span class="font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded font-bold tracking-wider">{{ $event->kode_absen }}</span>
+                                    @else
+                                        <span class="text-xs text-gray-400">-</span>
+                                    @endif
+                                </td>
+                                <td class="p-4">
                                     @if(\Carbon\Carbon::parse($event->waktu_pelaksanaan)->isPast())
                                         <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-semibold">Selesai</span>
                                     @else
@@ -44,6 +52,7 @@
                                 </td>
                                 <td class="p-4">
                                     <div class="flex items-center gap-2">
+                                        <a href="{{ route('admin.events.show', $event) }}" class="text-secondary-600 hover:text-secondary-900 bg-secondary-50 hover:bg-secondary-100 px-3 py-1 rounded text-sm transition">Lihat Presensi</a>
                                         <a href="{{ route('admin.events.edit', $event) }}" class="text-primary-600 hover:text-primary-900 bg-primary-50 hover:bg-primary-100 px-3 py-1 rounded text-sm transition">Edit</a>
                                         <form action="{{ route('admin.events.destroy', $event) }}" method="POST" onsubmit="return confirm('Hapus kegiatan ini?');">
                                             @csrf
@@ -55,7 +64,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="p-8 text-center text-gray-500">
+                                <td colspan="6" class="p-8 text-center text-gray-500">
                                     Belum ada kegiatan yang dijadwalkkan.
                                 </td>
                             </tr>

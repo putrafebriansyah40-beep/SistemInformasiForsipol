@@ -45,7 +45,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('member.cash-payments.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <form action="{{ route('member.cash-payments.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6" x-data="{ imagePreview: null }">
                             @csrf
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -83,18 +83,53 @@
                             {{-- Bukti Transfer --}}
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Upload Bukti Transfer <span class="text-red-500">*</span></label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary-500 transition-colors bg-gray-50">
-                                    <div class="space-y-1 text-center">
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary-500 transition-colors bg-gray-50 relative overflow-hidden">
+                                    <div class="space-y-1 text-center" x-show="!imagePreview">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <div class="flex text-sm text-gray-600 justify-center">
                                             <label for="bukti_transfer" class="relative cursor-pointer bg-white rounded-md font-medium text-primary-600 hover:text-primary-500 focus-within:outline-none px-1">
                                                 <span>Pilih gambar</span>
-                                                <input id="bukti_transfer" name="bukti_transfer" type="file" class="sr-only" required accept="image/jpeg,image/png,image/jpg">
+                                                <input id="bukti_transfer" name="bukti_transfer" type="file" class="sr-only" required accept="image/jpeg,image/png,image/jpg" @change="
+                                                    const file = $event.target.files[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onload = (e) => { imagePreview = e.target.result; };
+                                                        reader.readAsDataURL(file);
+                                                    } else {
+                                                        imagePreview = null;
+                                                    }
+                                                ">
                                             </label>
                                         </div>
                                         <p class="text-xs text-gray-500">PNG, JPG up to 2MB</p>
+                                    </div>
+                                    
+                                    {{-- Preview --}}
+                                    <div x-show="imagePreview" class="relative w-full" style="display: none;">
+                                        <img :src="imagePreview" class="max-h-64 mx-auto rounded-lg shadow-sm" alt="Preview Bukti Transfer">
+                                        <button type="button" @click="imagePreview = null; document.getElementById('bukti_transfer').value = '';" class="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1.5 hover:bg-red-700 shadow-md transition">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                        </button>
+                                        <div class="text-center mt-3">
+                                            <label for="bukti_transfer_change" class="cursor-pointer text-sm font-medium text-primary-600 hover:text-primary-500">
+                                                Ganti Gambar
+                                                <input id="bukti_transfer_change" name="bukti_transfer_change" type="file" class="sr-only" accept="image/jpeg,image/png,image/jpg" @change="
+                                                    const file = $event.target.files[0];
+                                                    if (file) {
+                                                        // Copy file to main input
+                                                        const dataTransfer = new DataTransfer();
+                                                        dataTransfer.items.add(file);
+                                                        document.getElementById('bukti_transfer').files = dataTransfer.files;
+                                                        
+                                                        const reader = new FileReader();
+                                                        reader.onload = (e) => { imagePreview = e.target.result; };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                ">
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 @error('bukti_transfer') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror

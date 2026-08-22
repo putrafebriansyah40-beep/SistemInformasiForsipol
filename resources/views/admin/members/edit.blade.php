@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="pt-2 pb-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="glass-card sm:rounded-2xl border-white/50 p-6 sm:p-8">
                 <form method="POST" action="{{ route('admin.members.update', $member) }}">

@@ -30,10 +30,21 @@ class EventController extends Controller
             'kategori' => 'required|in:Internal,Eksternal',
         ]);
 
+        $validated['kode_absen'] = strtoupper(\Illuminate\Support\Str::random(6));
+
         Event::create($validated);
 
         return redirect()->route('admin.events.index')
-            ->with('success', 'Kegiatan berhasil ditambahkan.');
+            ->with('success', 'Kegiatan berhasil ditambahkan dengan kode presensi: ' . $validated['kode_absen']);
+    }
+
+    public function show(Event $event)
+    {
+        $event->load(['attendances.user' => function($query) {
+            $query->orderBy('name');
+        }]);
+        
+        return view('admin.events.show', compact('event'));
     }
 
     public function edit(Event $event)

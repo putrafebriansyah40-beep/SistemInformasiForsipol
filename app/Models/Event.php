@@ -12,9 +12,15 @@ class Event extends Model
         'waktu_pelaksanaan',
         'lokasi',
         'kategori',
+        'kode_absen',
     ];
     
     protected $casts = [
         'waktu_pelaksanaan' => 'datetime',
     ];
+
+    public function attendances()
+    {
+        return $this->hasMany(EventAttendance::class);
+    }
 }

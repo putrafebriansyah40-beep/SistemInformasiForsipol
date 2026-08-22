@@ -21,15 +21,14 @@
                 <a href="/#struktur" class="nav-link-liquid nav-item px-4 py-2 rounded-lg text-sm font-medium text-gray-600 transition-all duration-300">Struktur</a>
                 <a href="/#program" class="nav-link-liquid nav-item px-4 py-2 rounded-lg text-sm font-medium text-gray-600 transition-all duration-300">Program</a>
                 <a href="/#galeri" class="nav-link-liquid nav-item px-4 py-2 rounded-lg text-sm font-medium text-gray-600 transition-all duration-300">Galeri</a>
-                <a href="/#kontak" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Kontak</a>
+                <a href="/#kontak" class="nav-link-liquid nav-item px-4 py-2 rounded-lg text-sm font-medium text-gray-600 transition-all duration-300">Kontak</a>
                 
                 <div class="h-6 w-px bg-gray-300 mx-2"></div>
                 
                 @auth
-                    <a href="{{ route('dashboard') }}" class="nav-link-liquid px-4 py-2 rounded-lg text-sm font-bold text-primary-700 transition-all duration-300">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="nav-link-liquid px-4 py-2 rounded-lg text-sm font-bold text-gray-800 transition-all duration-300 {{ request()->routeIs('login') ? 'active' : '' }}">Login</a>
-
+                    <a href="{{ route('login') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Login</a>
                 @endauth
             </div>
 
@@ -53,15 +52,14 @@
             <a href="/#struktur" class="mobile-nav-item block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-all duration-300">👥 Struktur</a>
             <a href="/#program" class="mobile-nav-item block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-all duration-300">📋 Program</a>
             <a href="/#galeri" class="mobile-nav-item block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-all duration-300">🖼️ Galeri</a>
-            <a href="/#kontak" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white">Hubungi Kami</a>
+            <a href="/#kontak" class="mobile-nav-item block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-primary-700 hover:bg-primary-50 transition-all duration-300">📞 Kontak</a>
             
             <div class="h-px bg-gray-200 my-4 mx-4"></div>
             
             @auth
-                <a href="{{ route('dashboard') }}" class="block px-4 py-3 rounded-lg text-base font-bold text-primary-700 hover:bg-primary-50 transition-all duration-300">📱 Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md">📱 Dashboard</a>
             @else
-                <a href="{{ route('login') }}" class="block px-4 py-3 rounded-lg text-base font-bold transition-all duration-300 {{ request()->routeIs('login') ? 'bg-primary-50 text-primary-700' : 'text-gray-800 hover:bg-gray-50' }}">🔑 Login</a>
-
+                <a href="{{ route('login') }}" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md">🔑 Login</a>
             @endauth
         </div>
     </div>

@@ -19,13 +19,18 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
-                'required',
+                'nullable',
                 'string',
                 'lowercase',
                 'email',
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'no_whatsapp' => ['nullable', 'string', 'max:20'],
+            'jenis_kelamin' => ['nullable', 'in:Laki-laki,Perempuan'],
+            'nama_bank' => ['nullable', 'string', 'max:255'],
+            'rekening_bank' => ['nullable', 'string', 'max:255'],
+            'atas_nama_bank' => ['nullable', 'string', 'max:255'],
         ];
     }
 }
