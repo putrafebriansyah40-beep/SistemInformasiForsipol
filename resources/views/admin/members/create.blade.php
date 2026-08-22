@@ -18,6 +18,13 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
+                    <!-- NIM -->
+                    <div class="mb-5">
+                        <x-input-label for="nim" :value="__('Nomor Induk Mahasiswa (NIM)')" />
+                        <x-text-input id="nim" class="block mt-1 w-full" type="text" name="nim" :value="old('nim')" />
+                        <x-input-error :messages="$errors->get('nim')" class="mt-2" />
+                    </div>
+
                     <!-- Email -->
                     <div class="mb-5">
                         <x-input-label for="email" :value="__('Email')" />
@@ -46,14 +53,27 @@
                     <!-- Jabatan -->
                     <div class="mb-5">
                         <x-input-label for="jabatan" :value="__('Jabatan')" />
-                        <x-text-input id="jabatan" class="block mt-1 w-full" type="text" name="jabatan" :value="old('jabatan')" />
+                        <select id="jabatan" name="jabatan" class="block mt-1 w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3">
+                            <option value="">-- Pilih Jabatan --</option>
+                            <option value="Koordinator" {{ old('jabatan') == 'Koordinator' ? 'selected' : '' }}>Koordinator</option>
+                            <option value="Koordinator Akhwat" {{ old('jabatan') == 'Koordinator Akhwat' ? 'selected' : '' }}>Koordinator Akhwat</option>
+                            <option value="Anggota" {{ old('jabatan') == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                        </select>
                         <x-input-error :messages="$errors->get('jabatan')" class="mt-2" />
                     </div>
 
                     <!-- Departemen -->
                     <div class="mb-5">
                         <x-input-label for="departemen" :value="__('Departemen')" />
-                        <x-text-input id="departemen" class="block mt-1 w-full" type="text" name="departemen" :value="old('departemen')" />
+                        <select id="departemen" name="departemen" class="block mt-1 w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3">
+                            <option value="">-- Pilih Departemen --</option>
+                            <option value="Departemen Keputrian" {{ old('departemen') == 'Departemen Keputrian' ? 'selected' : '' }}>Departemen Keputrian</option>
+                            <option value="Departemen KPSDM" {{ old('departemen') == 'Departemen KPSDM' ? 'selected' : '' }}>Departemen KPSDM</option>
+                            <option value="Departemen Biro Humas & Kestari" {{ old('departemen') == 'Departemen Biro Humas & Kestari' ? 'selected' : '' }}>Departemen Biro Humas &amp; Kestari</option>
+                            <option value="Departemen Syi'ar Islam" {{ old('departemen') == "Departemen Syi'ar Islam" ? 'selected' : '' }}>Departemen Syi'ar Islam</option>
+                            <option value="Departemen Multimedia" {{ old('departemen') == 'Departemen Multimedia' ? 'selected' : '' }}>Departemen Multimedia</option>
+                            <option value="Departemen Produksi" {{ old('departemen') == 'Departemen Produksi' ? 'selected' : '' }}>Departemen Produksi</option>
+                        </select>
                         <x-input-error :messages="$errors->get('departemen')" class="mt-2" />
                     </div>
 
