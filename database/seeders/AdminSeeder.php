@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
         \App\Models\User::create([
             'name' => 'Muhamad Fajar',
             'email' => 'admin@forsipol.com',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('12345678'),
             'no_whatsapp' => '081234567890',
             'jenis_kelamin' => 'L',
             'role' => 'admin',
