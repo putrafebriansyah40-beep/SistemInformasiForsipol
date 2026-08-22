@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\Meeting;
+use App\Http\Requests\Admin\MeetingRequest;
 
 class MeetingController extends Controller
 {
@@ -20,15 +19,9 @@ class MeetingController extends Controller
         return view('admin.meetings.create');
     }
 
-    public function store(Request $request)
+    public function store(MeetingRequest $request)
     {
-        $validated = $request->validate([
-            'nama_rapat' => 'required|string|max:255',
-            'agenda' => 'nullable|string',
-            'waktu_rapat' => 'required|date',
-            'lokasi' => 'nullable|string|max:255',
-        ]);
-
+        $validated = $request->validated();
         $validated['kode_absen'] = strtoupper(\Illuminate\Support\Str::random(6));
 
         Meeting::create($validated);
@@ -51,15 +44,9 @@ class MeetingController extends Controller
         return view('admin.meetings.edit', compact('meeting'));
     }
 
-    public function update(Request $request, Meeting $meeting)
+    public function update(MeetingRequest $request, Meeting $meeting)
     {
-        $validated = $request->validate([
-            'nama_rapat' => 'required|string|max:255',
-            'agenda' => 'nullable|string',
-            'waktu_rapat' => 'required|date',
-            'lokasi' => 'nullable|string|max:255',
-        ]);
-
+        $validated = $request->validated();
         $meeting->update($validated);
 
         return redirect()->route('admin.meetings.index')

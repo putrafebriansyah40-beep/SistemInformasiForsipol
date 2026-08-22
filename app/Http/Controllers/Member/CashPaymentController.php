@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CashPayment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\Member\StoreCashPaymentRequest;
 use Illuminate\Support\Facades\Auth;
 
 class CashPaymentController extends Controller
@@ -25,14 +26,9 @@ class CashPaymentController extends Controller
         return view('member.cash-payments.create', compact('bendahara', 'bulanNames'));
     }
 
-    public function store(Request $request)
+    public function store(StoreCashPaymentRequest $request)
     {
-        $request->validate([
-            'bulan'          => 'required|integer|between:1,12',
-            'tahun'          => 'required|integer|min:2020|max:2099',
-            'jumlah'         => 'required|integer|min:0',
-            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        $validated = $request->validated();
 
         // Cek duplikat
         $exists = CashPayment::where('user_id', Auth::id())

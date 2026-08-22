@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\Event;
+use App\Http\Requests\Admin\EventRequest;
 
 class EventController extends Controller
 {
@@ -20,16 +19,9 @@ class EventController extends Controller
         return view('admin.events.create');
     }
 
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        $validated = $request->validate([
-            'nama_kegiatan' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'waktu_pelaksanaan' => 'required|date',
-            'lokasi' => 'nullable|string|max:255',
-            'kategori' => 'required|in:Internal,Eksternal',
-        ]);
-
+        $validated = $request->validated();
         $validated['kode_absen'] = strtoupper(\Illuminate\Support\Str::random(6));
 
         Event::create($validated);
@@ -52,16 +44,9 @@ class EventController extends Controller
         return view('admin.events.edit', compact('event'));
     }
 
-    public function update(Request $request, Event $event)
+    public function update(EventRequest $request, Event $event)
     {
-        $validated = $request->validate([
-            'nama_kegiatan' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'waktu_pelaksanaan' => 'required|date',
-            'lokasi' => 'nullable|string|max:255',
-            'kategori' => 'required|in:Internal,Eksternal',
-        ]);
-
+        $validated = $request->validated();
         $event->update($validated);
 
         return redirect()->route('admin.events.index')

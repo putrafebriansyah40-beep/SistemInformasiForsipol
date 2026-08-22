@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\CashPayment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\Bendahara\StoreCashPaymentRequest;
+use App\Http\Requests\Bendahara\UpdateCashPaymentRequest;
 use Illuminate\Support\Facades\Auth;
 
 class CashPaymentController extends Controller
@@ -56,37 +58,19 @@ class CashPaymentController extends Controller
         return view('bendahara.cash-payments.create', compact('members', 'bulanNames'));
     }
 
-    public function store(Request $request)
+    public function store(StoreCashPaymentRequest $request)
     {
-        $request->validate([
-            'user_id'       => 'required|exists:users,id',
-            'bulan'         => 'required|integer|between:1,12',
-            'tahun'         => 'required|integer|min:2020|max:2099',
-            'jumlah'        => 'required|integer|min:0',
-            'status'        => 'required|in:Lunas,Belum Lunas,Menunggu Konfirmasi',
-            'tanggal_bayar' => 'nullable|date',
-            'keterangan'    => 'nullable|string|max:500',
-        ]);
-
-        // Cek duplikat
-        $exists = CashPayment::where('user_id', $request->user_id)
-            ->where('bulan', $request->bulan)
-            ->where('tahun', $request->tahun)
-            ->exists();
-
-        if ($exists) {
-            return back()->withErrors(['bulan' => 'Data kas untuk anggota ini pada bulan dan tahun tersebut sudah ada.'])->withInput();
-        }
+        $validated = $request->validated();
 
         CashPayment::create([
-            'user_id'       => $request->user_id,
-            'bulan'         => $request->bulan,
-            'tahun'         => $request->tahun,
-            'jumlah'        => $request->jumlah,
-            'status'        => $request->status,
-            'tanggal_bayar' => $request->status === 'Lunas' ? ($request->tanggal_bayar ?? now()) : null,
+            'user_id'       => $validated['user_id'],
+            'bulan'         => $validated['bulan'],
+            'tahun'         => $validated['tahun'],
+            'jumlah'        => $validated['jumlah'],
+            'status'        => $validated['status'],
+            'tanggal_bayar' => $validated['status'] === 'Lunas' ? ($validated['tanggal_bayar'] ?? now()) : null,
             'recorded_by'   => Auth::id(),
-            'keterangan'    => $request->keterangan,
+            'keterangan'    => $validated['keterangan'] ?? null,
         ]);
 
         return redirect()->route('bendahara.cash-payments.index')
@@ -109,21 +93,16 @@ class CashPaymentController extends Controller
         return view('bendahara.cash-payments.edit', compact('cashPayment', 'members', 'bulanNames'));
     }
 
-    public function update(Request $request, CashPayment $cashPayment)
+    public function update(UpdateCashPaymentRequest $request, CashPayment $cashPayment)
     {
-        $request->validate([
-            'jumlah'        => 'required|integer|min:0',
-            'status'        => 'required|in:Lunas,Belum Lunas,Menunggu Konfirmasi',
-            'tanggal_bayar' => 'nullable|date',
-            'keterangan'    => 'nullable|string|max:500',
-        ]);
+        $validated = $request->validated();
 
         $cashPayment->update([
-            'jumlah'        => $request->jumlah,
-            'status'        => $request->status,
-            'tanggal_bayar' => $request->status === 'Lunas' ? ($request->tanggal_bayar ?? now()) : null,
+            'jumlah'        => $validated['jumlah'],
+            'status'        => $validated['status'],
+            'tanggal_bayar' => $validated['status'] === 'Lunas' ? ($validated['tanggal_bayar'] ?? now()) : null,
             'recorded_by'   => Auth::id(),
-            'keterangan'    => $request->keterangan,
+            'keterangan'    => $validated['keterangan'] ?? null,
         ]);
 
         return redirect()->route('bendahara.cash-payments.index')

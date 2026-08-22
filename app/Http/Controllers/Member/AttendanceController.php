@@ -8,6 +8,7 @@ use App\Models\Meeting;
 use App\Models\Event;
 use App\Models\EventAttendance;
 use Illuminate\Http\Request;
+use App\Http\Requests\Member\AttendanceRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
@@ -17,13 +18,12 @@ class AttendanceController extends Controller
         return view('member.attendances.create');
     }
 
-    public function store(Request $request)
+    public function store(AttendanceRequest $request)
     {
-        $request->validate([
-            'kode_absen' => 'required|string|max:255',
-        ]);
+        $validated = $request->validated();
+        $kode_absen = $validated['kode_absen'];
 
-        $meeting = Meeting::where('kode_absen', $request->kode_absen)->first();
+        $meeting = Meeting::where('kode_absen', $kode_absen)->first();
 
         if ($meeting) {
             // Logika presensi rapat
@@ -49,7 +49,7 @@ class AttendanceController extends Controller
             return back()->with('success', "Presensi berhasil! Anda tercatat hadir pada rapat: {$meeting->nama_rapat}.");
         }
 
-        $event = Event::where('kode_absen', $request->kode_absen)->first();
+        $event = Event::where('kode_absen', $kode_absen)->first();
 
         if ($event) {
             // Logika presensi kegiatan
