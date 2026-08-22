@@ -93,7 +93,7 @@
                 <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10">
                     <h3 class="text-xl font-bold font-display text-gray-800 mb-6">Kirim Pesan</h3>
 
-                    <form action="#" method="POST" class="space-y-5" id="contact-form">
+                    <form action="{{ route('contact.send') }}" method="POST" class="space-y-5" id="contact-form">
                         @csrf
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <!-- Name -->
@@ -146,7 +146,14 @@
                     <div id="success-message" class="hidden mt-6 p-4 rounded-xl bg-primary-50 border border-primary-200">
                         <div class="flex items-center gap-3">
                             <svg class="w-6 h-6 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <p class="text-primary-700 text-sm">Terima kasih! Pesan Anda telah terkirim. Kami akan segera merespons.</p>
+                            <p class="text-primary-700 text-sm" id="success-text">Terima kasih! Pesan Anda telah terkirim. Kami akan segera merespons.</p>
+                        </div>
+                    </div>
+                    <!-- Error message (hidden by default) -->
+                    <div id="error-message" class="hidden mt-6 p-4 rounded-xl bg-red-50 border border-red-200">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <p class="text-red-700 text-sm" id="error-text">Terjadi kesalahan. Silakan coba lagi nanti.</p>
                         </div>
                     </div>
                 </div>
@@ -173,24 +180,61 @@
 </section>
 
 <script>
-    // Simple form handling
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
+        const form = this;
         const btn = document.getElementById('submit-btn');
         const successMsg = document.getElementById('success-message');
+        const successText = document.getElementById('success-text');
+        const errorMsg = document.getElementById('error-message');
+        const errorText = document.getElementById('error-text');
 
+        // Hide previous messages
+        successMsg.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+
+        const originalBtnHtml = btn.innerHTML;
         btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Mengirim...';
         btn.disabled = true;
 
-        setTimeout(() => {
-            btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Kirim Pesan';
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            btn.innerHTML = originalBtnHtml;
             btn.disabled = false;
-            successMsg.classList.remove('hidden');
-            this.reset();
+
+            if (data.success) {
+                successText.textContent = data.message || 'Terima kasih! Pesan Anda telah terkirim. Kami akan segera merespons.';
+                successMsg.classList.remove('hidden');
+                form.reset();
+            } else {
+                errorText.textContent = data.message || 'Terjadi kesalahan saat memproses data.';
+                errorMsg.classList.remove('hidden');
+            }
 
             setTimeout(() => {
                 successMsg.classList.add('hidden');
+                errorMsg.classList.add('hidden');
             }, 5000);
-        }, 1500);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            btn.innerHTML = originalBtnHtml;
+            btn.disabled = false;
+            errorText.textContent = 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.';
+            errorMsg.classList.remove('hidden');
+
+            setTimeout(() => {
+                errorMsg.classList.add('hidden');
+            }, 5000);
+        });
     });
 </script>

@@ -22,7 +22,7 @@
             <!-- Image 1 - Large -->
             <div class="reveal sm:col-span-2 lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.1s;">
                 <div class="aspect-[16/10] lg:aspect-auto lg:h-full">
-                    <img src="{{ asset('images/kajian-keislaman.png') }}" alt="Kajian Keislaman"
+                    <img src="{{ asset('images/Kajian-Rutin.jpeg') }}" alt="Kajian Rutin Keislaman"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
@@ -37,7 +37,7 @@
             <!-- Image 2 -->
             <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.2s;">
                 <div class="aspect-[4/3]">
-                    <img src="{{ asset('images/bakti-sosial.png') }}" alt="Bakti Sosial"
+                    <img src="{{ asset('images/Bakti-Sosial.jpeg') }}" alt="Bakti Sosial"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
@@ -52,14 +52,14 @@
             <!-- Image 3 -->
             <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.3s;">
                 <div class="aspect-[4/3]">
-                    <img src="{{ asset('images/seminar-islam.png') }}" alt="Seminar Islam"
+                    <img src="{{ asset('images/Kaderisasi.jpeg') }}" alt="Kaderisasi"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                     <div class="p-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-primary-500/80 text-white text-xs font-medium mb-2">Seminar</span>
-                        <h3 class="text-white font-bold font-display">Seminar Nasional</h3>
-                        <p class="text-gray-200 text-xs mt-1">Diskusi dan pembelajaran bersama</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-primary-500/80 text-white text-xs font-medium mb-2">Kaderisasi</span>
+                        <h3 class="text-white font-bold font-display">Kaderisasi</h3>
+                        <p class="text-gray-200 text-xs mt-1">Pembinaan dan penerimaan anggota baru</p>
                     </div>
                 </div>
             </div>
@@ -67,14 +67,14 @@
             <!-- Image 4 -->
             <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.4s;">
                 <div class="aspect-[4/3]">
-                    <img src="{{ asset('images/kaderisasi-event.png') }}" alt="Kaderisasi"
+                    <img src="{{ asset('images/Tahsin.jpeg') }}" alt="Tahsin & Baca Qur'an"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                     <div class="p-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-secondary-500/80 text-white text-xs font-medium mb-2">Kaderisasi</span>
-                        <h3 class="text-white font-bold font-display">Leadership Camp</h3>
-                        <p class="text-gray-200 text-xs mt-1">Pembinaan anggota baru</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-secondary-500/80 text-white text-xs font-medium mb-2">Tahsin</span>
+                        <h3 class="text-white font-bold font-display">Tahsin Al-Qur'an</h3>
+                        <p class="text-gray-200 text-xs mt-1">Perbaikan bacaan Al-Qur'an</p>
                     </div>
                 </div>
             </div>
@@ -82,14 +82,14 @@
             <!-- Image 5 -->
             <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.5s;">
                 <div class="aspect-[4/3]">
-                    <img src="{{ asset('images/baca-quran.png') }}" alt="Baca Tulis Al-Qur'an"
+                    <img src="{{ asset('images/Panahan.jpeg') }}" alt="Panahan"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                     <div class="p-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-primary-500/80 text-white text-xs font-medium mb-2">BTQ</span>
-                        <h3 class="text-white font-bold font-display">Baca Tulis Al-Qur'an</h3>
-                        <p class="text-gray-200 text-xs mt-1">Pelatihan tilawah dan tajwid</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-primary-500/80 text-white text-xs font-medium mb-2">Olahraga</span>
+                        <h3 class="text-white font-bold font-display">Latihan Panahan</h3>
+                        <p class="text-gray-200 text-xs mt-1">Menghidupkan sunnah memanah</p>
                     </div>
                 </div>
             </div>
@@ -97,14 +97,29 @@
             <!-- Image 6 -->
             <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.6s;">
                 <div class="aspect-[4/3]">
-                    <img src="{{ asset('images/foto-bersama.png') }}" alt="Foto Bersama"
+                    <img src="{{ asset('images/Pekan-Kreativitas-Teknologi-OlahragadanSeni.jpeg') }}" alt="Pekan Kreativitas"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                     <div class="p-5">
-                        <span class="inline-block px-3 py-1 rounded-full bg-secondary-500/80 text-white text-xs font-medium mb-2">Kebersamaan</span>
-                        <h3 class="text-white font-bold font-display">Foto Bersama</h3>
-                        <p class="text-gray-200 text-xs mt-1">Keluarga besar FORSIPOL PNP</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-secondary-500/80 text-white text-xs font-medium mb-2">Event</span>
+                        <h3 class="text-white font-bold font-display">Pekan Kreativitas</h3>
+                        <p class="text-gray-200 text-xs mt-1">Teknologi, Olahraga, dan Seni</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 7 -->
+            <div class="reveal group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.7s;">
+                <div class="aspect-[4/3]">
+                    <img src="{{ asset('images/Rihlah.jpeg') }}" alt="Rihlah"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
+                    <div class="p-5">
+                        <span class="inline-block px-3 py-1 rounded-full bg-primary-500/80 text-white text-xs font-medium mb-2">Rihlah</span>
+                        <h3 class="text-white font-bold font-display">Rihlah</h3>
+                        <p class="text-gray-200 text-xs mt-1">Perjalanan dan tadabbur alam</p>
                     </div>
                 </div>
             </div>
