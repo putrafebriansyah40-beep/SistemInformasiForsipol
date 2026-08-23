@@ -31,6 +31,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/members/export', [MemberController::class, 'export'])->name('members.export');
     Route::resource('members', MemberController::class);
     Route::resource('events', EventController::class);
     Route::resource('meetings', MeetingController::class);
