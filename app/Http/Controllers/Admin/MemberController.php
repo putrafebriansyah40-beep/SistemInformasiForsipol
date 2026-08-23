@@ -163,7 +163,7 @@ class MemberController extends Controller
                     $user->email,
                     $user->no_whatsapp ?? '-',
                     $user->jenis_kelamin ?? '-',
-                    $user->role,
+                    $user->role === 'admin' ? 'Presidium' : ucfirst($user->role),
                     $user->jabatan ?? '-',
                     $user->departemen ?? '-',
                     $user->angkatan ?? '-',

@@ -75,7 +75,15 @@
                                     @if($member->role === 'calon_anggota')
                                         <span class="inline-block text-[10px] bg-orange-100 text-orange-700 border border-orange-200 font-medium px-2 py-0.5 rounded-full">Calon Anggota</span>
                                     @else
-                                        <span class="inline-block text-[10px] bg-blue-100 text-blue-700 border border-blue-200 font-medium px-2 py-0.5 rounded-full">{{ $member->role === 'member' ? 'Anggota Aktif' : ucfirst($member->role) }}</span>
+                                        <span class="inline-block text-[10px] bg-blue-100 text-blue-700 border border-blue-200 font-medium px-2 py-0.5 rounded-full">
+                                            @if($member->role === 'member')
+                                                Anggota Aktif
+                                            @elseif($member->role === 'admin')
+                                                Presidium
+                                            @else
+                                                {{ ucfirst($member->role) }}
+                                            @endif
+                                        </span>
                                     @endif
                                 </td>
                                 <td class="p-4 text-gray-600">{{ $member->departemen ?? '-' }}</td>
