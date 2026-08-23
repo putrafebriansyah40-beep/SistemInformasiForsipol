@@ -18,7 +18,16 @@ class MemberController extends Controller
             $members = User::where('role', 'calon_anggota')->latest()->paginate(10)->withQueryString();
         } else {
             $members = User::where('role', '!=', 'calon_anggota')
-                ->orderByRaw("CASE WHEN departemen = 'Presidium' THEN 1 WHEN jabatan LIKE 'Koordinator%' THEN 2 ELSE 3 END ASC")
+                ->orderByRaw("CASE 
+                    WHEN jabatan = 'Ketua Umum' THEN 1 
+                    WHEN jabatan = 'Sekretaris Umum' THEN 2 
+                    WHEN jabatan = 'Bendahara Umum' THEN 3 
+                    WHEN jabatan = 'Ketua Keputrian' THEN 4 
+                    WHEN jabatan = 'Koordinator' THEN 5 
+                    WHEN jabatan = 'Koordinator Akhwat' THEN 6 
+                    WHEN jabatan = 'Anggota' THEN 7 
+                    ELSE 8 
+                END ASC")
                 ->orderBy('departemen', 'asc')
                 ->orderBy('name', 'asc')
                 ->paginate(10)
@@ -108,7 +117,16 @@ class MemberController extends Controller
             $filename = "data_calon_anggota_" . date('Y-m-d') . ".csv";
         } else {
             $users = User::where('role', '!=', 'calon_anggota')
-                ->orderByRaw("CASE WHEN departemen = 'Presidium' THEN 1 WHEN jabatan LIKE 'Koordinator%' THEN 2 ELSE 3 END ASC")
+                ->orderByRaw("CASE 
+                    WHEN jabatan = 'Ketua Umum' THEN 1 
+                    WHEN jabatan = 'Sekretaris Umum' THEN 2 
+                    WHEN jabatan = 'Bendahara Umum' THEN 3 
+                    WHEN jabatan = 'Ketua Keputrian' THEN 4 
+                    WHEN jabatan = 'Koordinator' THEN 5 
+                    WHEN jabatan = 'Koordinator Akhwat' THEN 6 
+                    WHEN jabatan = 'Anggota' THEN 7 
+                    ELSE 8 
+                END ASC")
                 ->orderBy('departemen', 'asc')
                 ->orderBy('name', 'asc')
                 ->get();
