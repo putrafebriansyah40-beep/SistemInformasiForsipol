@@ -33,6 +33,8 @@ class User extends Authenticatable
         'lulus_panda',
         'lulus_imt',
         'lulus_mukhayyam',
+        'role',
+        'is_verified',
     ];
 
     protected $hidden = [

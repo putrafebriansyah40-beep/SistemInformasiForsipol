@@ -45,10 +45,22 @@
                         <x-input-label for="jenis_kelamin" :value="__('Jenis Kelamin')" />
                         <select id="jenis_kelamin" name="jenis_kelamin" class="block mt-1 w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3">
                             <option value="">-- Pilih --</option>
-                            <option value="L" {{ old('jenis_kelamin', $member->jenis_kelamin) == 'L' ? 'selected' : '' }}>Laki-laki</option>
-                            <option value="P" {{ old('jenis_kelamin', $member->jenis_kelamin) == 'P' ? 'selected' : '' }}>Perempuan</option>
+                            <option value="Ikhwan" {{ old('jenis_kelamin', $member->jenis_kelamin) == 'Ikhwan' ? 'selected' : '' }}>Ikhwan</option>
+                            <option value="Akhwat" {{ old('jenis_kelamin', $member->jenis_kelamin) == 'Akhwat' ? 'selected' : '' }}>Akhwat</option>
                         </select>
                         <x-input-error :messages="$errors->get('jenis_kelamin')" class="mt-2" />
+                    </div>
+
+                    <!-- Role (Status Keanggotaan) -->
+                    <div class="mb-5">
+                        <x-input-label for="role" :value="__('Status Keanggotaan')" />
+                        <select id="role" name="role" class="block mt-1 w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3">
+                            <option value="calon_anggota" {{ old('role', $member->role) == 'calon_anggota' ? 'selected' : '' }}>Calon Anggota</option>
+                            <option value="member" {{ old('role', $member->role) == 'member' ? 'selected' : '' }}>Anggota Penuh</option>
+                            <option value="bendahara" {{ old('role', $member->role) == 'bendahara' ? 'selected' : '' }}>Bendahara</option>
+                            <option value="admin" {{ old('role', $member->role) == 'admin' ? 'selected' : '' }}>Admin</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('role')" class="mt-2" />
                     </div>
 
                     <!-- Jabatan -->
@@ -83,6 +95,36 @@
                         <x-input-label for="angkatan" :value="__('Angkatan')" />
                         <x-text-input id="angkatan" class="block mt-1 w-full" type="text" name="angkatan" :value="old('angkatan', $member->angkatan)" />
                         <x-input-error :messages="$errors->get('angkatan')" class="mt-2" />
+                    </div>
+
+                    <!-- Status Kaderisasi -->
+                    <div class="mb-5">
+                        <x-input-label :value="__('Status Lulus Pengkaderan')" class="mb-2" />
+                        <div class="space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                            @if($member->role !== 'calon_anggota')
+                                <input type="hidden" name="lulus_simba" value="{{ $member->lulus_simba ? '1' : '' }}">
+                                <input type="hidden" name="lulus_panda" value="{{ $member->lulus_panda ? '1' : '' }}">
+                                <input type="hidden" name="lulus_imt" value="{{ $member->lulus_imt ? '1' : '' }}">
+                                <input type="hidden" name="lulus_mukhayyam" value="{{ $member->lulus_mukhayyam ? '1' : '' }}">
+                            @endif
+
+                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
+                                <input type="checkbox" name="lulus_simba" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_simba', $member->lulus_simba) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                                <span class="text-sm text-gray-700">SIMBA</span>
+                            </label>
+                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
+                                <input type="checkbox" name="lulus_panda" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_panda', $member->lulus_panda) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                                <span class="text-sm text-gray-700">PANDA</span>
+                            </label>
+                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
+                                <input type="checkbox" name="lulus_imt" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_imt', $member->lulus_imt) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                                <span class="text-sm text-gray-700">IMT</span>
+                            </label>
+                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
+                                <input type="checkbox" name="lulus_mukhayyam" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_mukhayyam', $member->lulus_mukhayyam) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                                <span class="text-sm text-gray-700">Mukhayyam</span>
+                            </label>
+                        </div>
                     </div>
 
                     <!-- Password (opsional) -->

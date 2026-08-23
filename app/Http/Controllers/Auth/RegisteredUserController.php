@@ -33,6 +33,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20', 'unique:'.User::class],
+            'jenis_kelamin' => ['required', 'string', 'in:Ikhwan,Akhwat'],
             'jurusan' => ['required', 'string', 'max:255'],
             'program_studi' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -40,11 +41,10 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $otpCode = str_pad((string)random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-
         $user = User::create([
             'name' => $request->name,
             'nim' => $request->nim,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'jurusan' => $request->jurusan,
             'program_studi' => $request->program_studi,
             'email' => $request->email,
@@ -52,18 +52,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'calon_anggota',
             'jabatan' => 'Calon Anggota',
-            'otp_code' => $otpCode,
-            'otp_expires_at' => now()->addMinutes(10),
-            'is_verified' => false,
+            'otp_code' => null,
+            'otp_expires_at' => null,
+            'is_verified' => true,
         ]);
 
-        // Send OTP via WhatsApp
-        $fonnteService = new \App\Services\FonnteService();
-        $message = "*FORSIPOL PNP*\n\nKode OTP Anda adalah: *$otpCode*\n\nKode ini berlaku selama 10 menit. Jangan berikan kode ini kepada siapapun.";
-        $fonnteService->sendMessage($user->no_whatsapp, $message);
-
-        Auth::login($user);
-
-        return redirect(route('otp.verify', absolute: false));
+        return redirect(route('login'))->with('status', 'Registrasi berhasil! Silakan login untuk melanjutkan sebagai calon anggota.');
     }
 }

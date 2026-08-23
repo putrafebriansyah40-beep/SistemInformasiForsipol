@@ -23,6 +23,9 @@
                         <x-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.*')" class="nav-link-liquid">
                             {{ __('Anggota') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.pengkaderans.index')" :active="request()->routeIs('admin.pengkaderans.*')" class="nav-link-liquid">
+                            {{ __('Pengkaderan') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('admin.events.index')" :active="request()->routeIs('admin.events.*')" class="nav-link-liquid">
                             {{ __('Kegiatan') }}
                         </x-nav-link>
@@ -123,6 +126,9 @@
             @if(Auth::user()->role === 'admin')
                 <x-responsive-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.*')">
                     {{ __('Anggota') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.pengkaderans.index')" :active="request()->routeIs('admin.pengkaderans.*')">
+                    {{ __('Pengkaderan') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.events.index')" :active="request()->routeIs('admin.events.*')">
                     {{ __('Kegiatan') }}

@@ -16,6 +16,17 @@
             <x-input-error :messages="$errors->get('nim')" class="mt-2" />
         </div>
 
+        <!-- Jenis Kelamin -->
+        <div class="mt-4">
+            <x-input-label for="jenis_kelamin" :value="__('Jenis Kelamin')" />
+            <select id="jenis_kelamin" name="jenis_kelamin" class="block mt-1 w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3" required>
+                <option value="">Pilih Jenis Kelamin</option>
+                <option value="Ikhwan" {{ old('jenis_kelamin') == 'Ikhwan' ? 'selected' : '' }}>Ikhwan</option>
+                <option value="Akhwat" {{ old('jenis_kelamin') == 'Akhwat' ? 'selected' : '' }}>Akhwat</option>
+            </select>
+            <x-input-error :messages="$errors->get('jenis_kelamin')" class="mt-2" />
+        </div>
+
         <div x-data="{
             jurusan: '{{ old('jurusan') }}',
             programStudiList: {

@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
-    public function index()
+    public function index(\Illuminate\Http\Request $request)
     {
-        $members = User::whereIn('role', ['member', 'calon_anggota'])->latest()->paginate(10);
-        return view('admin.members.index', compact('members'));
+        $tab = $request->query('tab', 'anggota_penuh');
+        
+        if ($tab === 'calon_anggota') {
+            $members = User::where('role', 'calon_anggota')->latest()->paginate(10)->withQueryString();
+        } else {
+            $members = User::where('role', 'member')->latest()->paginate(10)->withQueryString();
+        }
+
+        return view('admin.members.index', compact('members', 'tab'));
     }
 
     public function create()
@@ -50,6 +57,11 @@ class MemberController extends Controller
             unset($validated['password']);
         }
 
+        $validated['lulus_simba'] = $request->boolean('lulus_simba');
+        $validated['lulus_panda'] = $request->boolean('lulus_panda');
+        $validated['lulus_imt'] = $request->boolean('lulus_imt');
+        $validated['lulus_mukhayyam'] = $request->boolean('lulus_mukhayyam');
+
         $member->update($validated);
 
         return redirect()->route('admin.members.index')
@@ -66,10 +78,10 @@ class MemberController extends Controller
 
     public function updateKader(\Illuminate\Http\Request $request, User $member)
     {
-        $member->lulus_simba = $request->has('lulus_simba');
-        $member->lulus_panda = $request->has('lulus_panda');
-        $member->lulus_imt = $request->has('lulus_imt');
-        $member->lulus_mukhayyam = $request->has('lulus_mukhayyam');
+        $member->lulus_simba = $request->boolean('lulus_simba');
+        $member->lulus_panda = $request->boolean('lulus_panda');
+        $member->lulus_imt = $request->boolean('lulus_imt');
+        $member->lulus_mukhayyam = $request->boolean('lulus_mukhayyam');
         
         if ($member->lulus_simba && $member->lulus_panda && $member->lulus_imt && $member->lulus_mukhayyam) {
             $member->role = 'member';
@@ -82,11 +94,17 @@ class MemberController extends Controller
         return redirect()->back()->with('success', 'Status pengkaderan ' . $member->name . ' berhasil diperbarui.');
     }
 
-    public function export()
+    public function export(\Illuminate\Http\Request $request)
     {
-        $users = User::all();
+        $tab = $request->query('tab', 'anggota_penuh');
         
-        $filename = "data_anggota_" . date('Y-m-d') . ".csv";
+        if ($tab === 'calon_anggota') {
+            $users = User::where('role', 'calon_anggota')->get();
+            $filename = "data_calon_anggota_" . date('Y-m-d') . ".csv";
+        } else {
+            $users = User::where('role', 'member')->get();
+            $filename = "data_anggota_penuh_" . date('Y-m-d') . ".csv";
+        }
         $headers = array(
             "Content-type"        => "text/csv",
             "Content-Disposition" => "attachment; filename=$filename",
@@ -117,7 +135,7 @@ class MemberController extends Controller
                     $user->nim,
                     $user->email,
                     $user->no_whatsapp ?? '-',
-                    $user->jenis_kelamin == 'L' ? 'Laki-laki' : ($user->jenis_kelamin == 'P' ? 'Perempuan' : '-'),
+                    $user->jenis_kelamin ?? '-',
                     $user->role,
                     $user->jabatan ?? '-',
                     $user->departemen ?? '-',

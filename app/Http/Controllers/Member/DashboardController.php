@@ -15,8 +15,13 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         // ── Rekap Kehadiran ──
-        $totalMeetings = Meeting::count();
-        $attendances = Attendance::where('user_id', $user->id)->get();
+        if ($user->role === 'calon_anggota') {
+            $totalMeetings = \App\Models\PengkaderanSesi::count();
+            $attendances = \App\Models\PengkaderanAttendance::where('user_id', $user->id)->get();
+        } else {
+            $totalMeetings = Meeting::count();
+            $attendances = Attendance::where('user_id', $user->id)->get();
+        }
 
         $hadir = $attendances->where('status_kehadiran', 'Hadir')->count();
         $izin  = $attendances->where('status_kehadiran', 'Izin')->count();

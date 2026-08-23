@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\MeetingController;
 use App\Http\Controllers\Admin\AttendanceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PengkaderanController;
+use App\Http\Controllers\Admin\PengkaderanSesiController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\AttendanceController as MemberAttendanceController;
 use App\Http\Controllers\Member\CashPaymentController as MemberCashPaymentController;
@@ -36,6 +38,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('members', MemberController::class);
     Route::put('/members/{member}/kader', [MemberController::class, 'updateKader'])->name('members.update_kader');
     Route::resource('events', EventController::class);
+    Route::resource('pengkaderans', PengkaderanController::class);
+    Route::post('pengkaderans/{pengkaderan}/sesis', [PengkaderanSesiController::class, 'store'])->name('pengkaderans.sesis.store');
+    Route::delete('pengkaderans/{pengkaderan}/sesis/{sesi}', [PengkaderanSesiController::class, 'destroy'])->name('pengkaderans.sesis.destroy');
     Route::resource('meetings', MeetingController::class);
     Route::resource('attendances', AttendanceController::class);
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');

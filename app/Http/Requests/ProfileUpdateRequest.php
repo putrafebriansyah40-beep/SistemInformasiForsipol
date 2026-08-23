@@ -27,7 +27,7 @@ class ProfileUpdateRequest extends FormRequest
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
             'no_whatsapp' => ['nullable', 'string', 'max:20'],
-            'jenis_kelamin' => ['nullable', 'in:Laki-laki,Perempuan'],
+            'jenis_kelamin' => ['nullable', 'in:Ikhwan,Akhwat'],
             'nama_bank' => ['nullable', 'string', 'max:255'],
             'rekening_bank' => ['nullable', 'string', 'max:255'],
             'atas_nama_bank' => ['nullable', 'string', 'max:255'],
