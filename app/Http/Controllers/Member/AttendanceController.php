@@ -125,6 +125,15 @@ class AttendanceController extends Controller
                     if (\Illuminate\Support\Facades\Schema::hasColumn('users', $fieldLulus)) {
                         if (!$user->$fieldLulus) {
                             $user->update([$fieldLulus => true]);
+                            
+                            $user->refresh();
+                            $passedCount = ($user->lulus_simba ? 1 : 0) + ($user->lulus_panda ? 1 : 0) + ($user->lulus_imt ? 1 : 0) + ($user->lulus_mukhayyam ? 1 : 0);
+                            
+                            if ($passedCount >= 3 && $user->role === 'calon_anggota') {
+                                $user->update(['role' => 'member']);
+                                return back()->with('success', "Presensi berhasil di sesi {$sesi->nama_sesi}! Selamat, kehadiran Anda telah mencapai " . round($persentase) . "%. Anda dinyatakan LULUS {$pengkaderan->nama_pengkaderan} dan RESMI menjadi Anggota Aktif!");
+                            }
+                            
                             return back()->with('success', "Presensi berhasil di sesi {$sesi->nama_sesi}! Selamat, kehadiran Anda telah mencapai " . round($persentase) . "%. Anda dinyatakan LULUS " . $pengkaderan->nama_pengkaderan . ".");
                         }
                     }

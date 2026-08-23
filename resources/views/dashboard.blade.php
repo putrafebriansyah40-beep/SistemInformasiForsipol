@@ -11,15 +11,15 @@
             {{-- ═══════════════════════════════════════════ --}}
             {{-- INFORMASI OPREC & PENGKADERAN --}}
             {{-- ═══════════════════════════════════════════ --}}
-            <div class="bg-white rounded-2xl shadow-sm border {{ $user->role === 'calon_anggota' ? 'border-orange-200' : 'border-green-200' }} overflow-hidden mb-8">
-                <div class="bg-gradient-to-r {{ $user->role === 'calon_anggota' ? 'from-orange-500 to-orange-600' : 'from-green-500 to-green-600' }} px-6 py-4">
+            @if($user->role === 'calon_anggota')
+            <div class="bg-white rounded-2xl shadow-sm border border-orange-200 overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
                     <h3 class="text-lg font-semibold text-white flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Rekap Kehadiran Kegiatan Pengkaderan
                     </h3>
                 </div>
                 <div class="p-6">
-                    @if($user->role === 'calon_anggota')
                         @if($whatsappLink)
                         <div class="mb-6 p-4 bg-green-50 rounded-xl border border-green-200 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
@@ -57,19 +57,11 @@
                             @endforeach
                         </div>
                         <p class="text-xs text-gray-500 mt-4 text-center">
-                            *Anda harus lulus keempat kegiatan di atas untuk menjadi Anggota Penuh Forsipol.
+                            *Anda harus lulus minimal 3 kegiatan di atas untuk menjadi Anggota Aktif Forsipol.
                         </p>
-                    @else
-                        <div class="flex flex-col items-center justify-center py-6 text-center">
-                            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <h4 class="text-lg font-bold text-gray-800">Telah Mengikuti Semua Pengkaderan</h4>
-                            <p class="text-sm text-gray-600 mt-2">Anda telah menyelesaikan seluruh rangkaian kegiatan pengkaderan dan kini berstatus sebagai Anggota Penuh FORSIPOL.</p>
-                        </div>
-                    @endif
                 </div>
             </div>
+            @endif
 
             {{-- ═══════════════════════════════════════════ --}}
             {{-- BIODATA CARD --}}

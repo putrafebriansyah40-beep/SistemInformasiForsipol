@@ -97,10 +97,16 @@ class MemberController extends Controller
         $member->lulus_imt = $request->boolean('lulus_imt');
         $member->lulus_mukhayyam = $request->boolean('lulus_mukhayyam');
         
-        if ($member->lulus_simba && $member->lulus_panda && $member->lulus_imt && $member->lulus_mukhayyam) {
-            $member->role = 'member';
+        $passedCount = ($member->lulus_simba ? 1 : 0) + ($member->lulus_panda ? 1 : 0) + ($member->lulus_imt ? 1 : 0) + ($member->lulus_mukhayyam ? 1 : 0);
+        
+        if ($passedCount >= 3) {
+            if ($member->role === 'calon_anggota') {
+                $member->role = 'member';
+            }
         } else {
-            $member->role = 'calon_anggota';
+            if ($member->role === 'member') {
+                $member->role = 'calon_anggota';
+            }
         }
 
         $member->save();
