@@ -54,12 +54,18 @@ class DashboardController extends Controller
 
         $totalLunas = collect($statusKas)->where('status', 'Lunas')->count();
 
+        $whatsappLink = null;
+        if ($user->role === 'calon_anggota') {
+            $whatsappLink = \App\Models\Setting::get('whatsapp_group_link', '');
+        }
+
         return view('dashboard', compact(
             'user',
             'rekapKehadiran',
             'statusKas',
             'tahun',
-            'totalLunas'
+            'totalLunas',
+            'whatsappLink'
         ));
     }
 

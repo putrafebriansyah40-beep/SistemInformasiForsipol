@@ -29,14 +29,19 @@
                         <x-nav-link :href="route('admin.meetings.index')" :active="request()->routeIs('admin.meetings.*')" class="nav-link-liquid">
                             {{ __('Rapat & Presensi') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.settings.index')" :active="request()->routeIs('admin.settings.*')" class="nav-link-liquid">
+                            {{ __('Pengaturan') }}
+                        </x-nav-link>
                     @endif
 
                     <x-nav-link :href="route('member.attendances.create')" :active="request()->routeIs('member.attendances.*')" class="nav-link-liquid">
                         {{ __('Presensi') }}
                     </x-nav-link>
+                    @if(Auth::user()->role !== 'calon_anggota')
                     <x-nav-link :href="route('member.cash-payments.create')" :active="request()->routeIs('member.cash-payments.*')" class="nav-link-liquid">
                         {{ __('Bayar Kas') }}
                     </x-nav-link>
+                    @endif
                     @if(in_array(Auth::user()->role, ['bendahara', 'admin']))
                         <x-nav-link :href="route('bendahara.cash-payments.index')" :active="request()->routeIs('bendahara.cash-payments.*')" class="nav-link-liquid">
                             {{ __('Keuangan Kas') }}
@@ -125,14 +130,19 @@
                 <x-responsive-nav-link :href="route('admin.meetings.index')" :active="request()->routeIs('admin.meetings.*')">
                     {{ __('Rapat & Presensi') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.settings.index')" :active="request()->routeIs('admin.settings.*')">
+                    {{ __('Pengaturan') }}
+                </x-responsive-nav-link>
             @endif
 
             <x-responsive-nav-link :href="route('member.attendances.create')" :active="request()->routeIs('member.attendances.*')">
                 {{ __('Presensi') }}
             </x-responsive-nav-link>
+            @if(Auth::user()->role !== 'calon_anggota')
             <x-responsive-nav-link :href="route('member.cash-payments.create')" :active="request()->routeIs('member.cash-payments.*')">
                 {{ __('Bayar Kas') }}
             </x-responsive-nav-link>
+            @endif
             @if(in_array(Auth::user()->role, ['bendahara', 'admin']))
                 <x-responsive-nav-link :href="route('bendahara.cash-payments.index')" :active="request()->routeIs('bendahara.cash-payments.*')">
                     {{ __('Keuangan Kas') }}

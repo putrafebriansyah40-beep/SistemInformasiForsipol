@@ -32,6 +32,9 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'nim' => ['required', 'string', 'max:20', 'unique:'.User::class],
+            'jurusan' => ['required', 'string', 'max:255'],
+            'program_studi' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'whatsapp' => ['required', 'string', 'max:20'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -41,11 +44,14 @@ class RegisteredUserController extends Controller
 
         $user = User::create([
             'name' => $request->name,
+            'nim' => $request->nim,
+            'jurusan' => $request->jurusan,
+            'program_studi' => $request->program_studi,
             'email' => $request->email,
             'no_whatsapp' => $request->whatsapp,
             'password' => Hash::make($request->password),
-            'role' => 'member',
-            'jabatan' => 'Anggota',
+            'role' => 'calon_anggota',
+            'jabatan' => 'Calon Anggota',
             'otp_code' => $otpCode,
             'otp_expires_at' => now()->addMinutes(10),
             'is_verified' => false,

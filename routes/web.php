@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\MeetingController;
 use App\Http\Controllers\Admin\AttendanceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\AttendanceController as MemberAttendanceController;
 use App\Http\Controllers\Member\CashPaymentController as MemberCashPaymentController;
@@ -33,9 +34,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/members/export', [MemberController::class, 'export'])->name('members.export');
     Route::resource('members', MemberController::class);
+    Route::put('/members/{member}/kader', [MemberController::class, 'updateKader'])->name('members.update_kader');
     Route::resource('events', EventController::class);
     Route::resource('meetings', MeetingController::class);
     Route::resource('attendances', AttendanceController::class);
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::put('/settings', [SettingController::class, 'update'])->name('settings.update');
 });
 
 // Bendahara routes

@@ -29,6 +29,7 @@
                                 <th class="p-4">Nama Lengkap</th>
                                 <th class="p-4">Email</th>
                                 <th class="p-4">No. WhatsApp</th>
+                                <th class="p-4">Kaderisasi & Status</th>
                                 <th class="p-4">Jabatan</th>
                                 <th class="p-4">Aksi</th>
                             </tr>
@@ -46,6 +47,29 @@
                                         </a>
                                     @else
                                         <span class="text-gray-400 italic">Belum diisi</span>
+                                    @endif
+                                </td>
+                                <td class="p-4">
+                                    <form action="{{ route('admin.members.update_kader', $member) }}" method="POST" class="flex flex-col gap-1 text-xs" onchange="this.submit()">
+                                        @csrf
+                                        @method('PUT')
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" name="lulus_simba" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 w-3 h-3" {{ $member->lulus_simba ? 'checked' : '' }}> SIMBA
+                                        </label>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" name="lulus_panda" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 w-3 h-3" {{ $member->lulus_panda ? 'checked' : '' }}> PANDA
+                                        </label>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" name="lulus_imt" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 w-3 h-3" {{ $member->lulus_imt ? 'checked' : '' }}> IMT
+                                        </label>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" name="lulus_mukhayyam" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 w-3 h-3" {{ $member->lulus_mukhayyam ? 'checked' : '' }}> Mukhayyam
+                                        </label>
+                                    </form>
+                                    @if($member->role === 'calon_anggota')
+                                        <span class="mt-2 inline-block text-[10px] bg-orange-100 text-orange-700 font-medium px-2 py-0.5 rounded-full">Calon Anggota</span>
+                                    @else
+                                        <span class="mt-2 inline-block text-[10px] bg-green-100 text-green-700 font-medium px-2 py-0.5 rounded-full">Anggota Penuh</span>
                                     @endif
                                 </td>
                                 <td class="p-4 text-gray-600">{{ $member->jabatan }}</td>

@@ -19,7 +19,6 @@ class User extends Authenticatable
         'password',
         'no_whatsapp',
         'jenis_kelamin',
-        // 'role' dan 'is_verified' dihapus untuk mencegah mass assignment
         'jabatan',
         'departemen',
         'angkatan',
@@ -28,6 +27,12 @@ class User extends Authenticatable
         'nama_bank',
         'rekening_bank',
         'atas_nama_bank',
+        'jurusan',
+        'program_studi',
+        'lulus_simba',
+        'lulus_panda',
+        'lulus_imt',
+        'lulus_mukhayyam',
     ];
 
     protected $hidden = [
@@ -57,6 +62,10 @@ class User extends Authenticatable
             'password' => 'hashed',
             'is_verified' => 'boolean',
             'otp_expires_at' => 'datetime',
+            'lulus_simba' => 'boolean',
+            'lulus_panda' => 'boolean',
+            'lulus_imt' => 'boolean',
+            'lulus_mukhayyam' => 'boolean',
         ];
     }
 }

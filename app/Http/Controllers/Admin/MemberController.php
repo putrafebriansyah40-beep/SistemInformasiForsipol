@@ -12,7 +12,7 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = User::where('role', 'member')->latest()->paginate(10);
+        $members = User::whereIn('role', ['member', 'calon_anggota'])->latest()->paginate(10);
         return view('admin.members.index', compact('members'));
     }
 
@@ -62,6 +62,24 @@ class MemberController extends Controller
 
         return redirect()->route('admin.members.index')
             ->with('success', 'Anggota berhasil dihapus.');
+    }
+
+    public function updateKader(\Illuminate\Http\Request $request, User $member)
+    {
+        $member->lulus_simba = $request->has('lulus_simba');
+        $member->lulus_panda = $request->has('lulus_panda');
+        $member->lulus_imt = $request->has('lulus_imt');
+        $member->lulus_mukhayyam = $request->has('lulus_mukhayyam');
+        
+        if ($member->lulus_simba && $member->lulus_panda && $member->lulus_imt && $member->lulus_mukhayyam) {
+            $member->role = 'member';
+        } else {
+            $member->role = 'calon_anggota';
+        }
+
+        $member->save();
+
+        return redirect()->back()->with('success', 'Status pengkaderan ' . $member->name . ' berhasil diperbarui.');
     }
 
     public function export()

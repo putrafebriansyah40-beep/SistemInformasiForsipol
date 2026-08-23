@@ -8,6 +8,61 @@
     <div class="py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
+            @if($user->role === 'calon_anggota')
+            {{-- ═══════════════════════════════════════════ --}}
+            {{-- INFORMASI OPREC & PENGKADERAN --}}
+            {{-- ═══════════════════════════════════════════ --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-orange-200 overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
+                    <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Informasi Calon Anggota (Oprec)
+                    </h3>
+                </div>
+                <div class="p-6">
+                    @if($whatsappLink)
+                    <div class="mb-6 p-4 bg-green-50 rounded-xl border border-green-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <h4 class="font-semibold text-green-800">Grup WhatsApp Calon Anggota</h4>
+                            <p class="text-sm text-green-700">Silakan bergabung ke grup WhatsApp untuk mendapatkan informasi terbaru seputar pengkaderan.</p>
+                        </div>
+                        <a href="{{ $whatsappLink }}" target="_blank" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap">
+                            Gabung Grup WA
+                        </a>
+                    </div>
+                    @endif
+
+                    <h4 class="font-semibold text-gray-800 mb-4">Progress Pengkaderan Anda</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        @php
+                            $kaderStatus = [
+                                ['nama' => 'SIMBA', 'lulus' => $user->lulus_simba],
+                                ['nama' => 'PANDA', 'lulus' => $user->lulus_panda],
+                                ['nama' => 'IMT', 'lulus' => $user->lulus_imt],
+                                ['nama' => 'Mukhayyam', 'lulus' => $user->lulus_mukhayyam],
+                            ];
+                        @endphp
+                        @foreach($kaderStatus as $kader)
+                        <div class="p-4 rounded-xl border {{ $kader['lulus'] ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200' }} flex flex-col items-center justify-center text-center">
+                            @if($kader['lulus'])
+                                <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span class="font-medium text-green-700">{{ $kader['nama'] }}</span>
+                                <span class="text-xs text-green-600">Lulus</span>
+                            @else
+                                <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span class="font-medium text-gray-600">{{ $kader['nama'] }}</span>
+                                <span class="text-xs text-gray-500">Belum Lulus</span>
+                            @endif
+                        </div>
+                        @endforeach
+                    </div>
+                    <p class="text-xs text-gray-500 mt-4 text-center">
+                        *Anda harus lulus keempat kegiatan di atas untuk menjadi Anggota Penuh Forsipol.
+                    </p>
+                </div>
+            </div>
+            @endif
+
             {{-- ═══════════════════════════════════════════ --}}
             {{-- BIODATA CARD --}}
             {{-- ═══════════════════════════════════════════ --}}
@@ -48,6 +103,16 @@
                                 @else -
                                 @endif
                             </p>
+                        </div>
+                        {{-- Jurusan --}}
+                        <div>
+                            <label class="text-xs font-medium text-gray-400 uppercase tracking-wider">Jurusan</label>
+                            <p class="mt-1 text-gray-900 font-medium">{{ $user->jurusan ?? '-' }}</p>
+                        </div>
+                        {{-- Program Studi --}}
+                        <div>
+                            <label class="text-xs font-medium text-gray-400 uppercase tracking-wider">Program Studi</label>
+                            <p class="mt-1 text-gray-900 font-medium">{{ $user->program_studi ?? '-' }}</p>
                         </div>
                         {{-- Departemen (read-only) --}}
                         <div>
@@ -146,6 +211,7 @@
                 </div>
             </div>
 
+            @if($user->role !== 'calon_anggota')
             {{-- ═══════════════════════════════════════════ --}}
             {{-- STATUS PEMBAYARAN KAS --}}
             {{-- ═══════════════════════════════════════════ --}}
@@ -189,6 +255,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
         </div>
     </div>
