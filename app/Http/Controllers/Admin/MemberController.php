@@ -17,7 +17,12 @@ class MemberController extends Controller
         if ($tab === 'calon_anggota') {
             $members = User::where('role', 'calon_anggota')->latest()->paginate(10)->withQueryString();
         } else {
-            $members = User::where('role', 'member')->latest()->paginate(10)->withQueryString();
+            $members = User::where('role', '!=', 'calon_anggota')
+                ->orderByRaw("CASE WHEN departemen = 'Presidium' THEN 1 WHEN jabatan LIKE 'Koordinator%' THEN 2 ELSE 3 END ASC")
+                ->orderBy('departemen', 'asc')
+                ->orderBy('name', 'asc')
+                ->paginate(10)
+                ->withQueryString();
         }
 
         return view('admin.members.index', compact('members', 'tab'));
@@ -102,7 +107,11 @@ class MemberController extends Controller
             $users = User::where('role', 'calon_anggota')->get();
             $filename = "data_calon_anggota_" . date('Y-m-d') . ".csv";
         } else {
-            $users = User::where('role', 'member')->get();
+            $users = User::where('role', '!=', 'calon_anggota')
+                ->orderByRaw("CASE WHEN departemen = 'Presidium' THEN 1 WHEN jabatan LIKE 'Koordinator%' THEN 2 ELSE 3 END ASC")
+                ->orderBy('departemen', 'asc')
+                ->orderBy('name', 'asc')
+                ->get();
             $filename = "data_anggota_penuh_" . date('Y-m-d') . ".csv";
         }
         $headers = array(
