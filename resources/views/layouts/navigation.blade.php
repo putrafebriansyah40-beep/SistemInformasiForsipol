@@ -5,16 +5,16 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ url('/') }}" class="flex items-center gap-2 group">
-                        <img src="{{ asset('images/logo-forsipol.png') }}" alt="Logo" class="h-10 w-10 object-contain transition-transform group-hover:scale-110">
-                        <div class="hidden sm:flex flex-col justify-center">
-                            <span class="font-bold text-lg text-gradient font-display leading-tight">SiSiPol</span>
-                            <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider leading-tight">Sistem Informasi Forsipol</span>
+                        <img src="{{ asset('images/logo-forsipol.png') }}" alt="Logo" class="h-9 w-9 sm:h-10 sm:w-10 object-contain transition-transform group-hover:scale-110">
+                        <div class="flex flex-col justify-center">
+                            <span class="font-bold text-base sm:text-lg text-gradient font-display leading-tight">SiSiPol</span>
+                            <span class="text-[9px] sm:text-[10px] font-medium text-gray-500 uppercase tracking-wider leading-tight hidden sm:block">Sistem Informasi Forsipol</span>
                         </div>
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-2 sm:-my-px sm:ms-10 sm:flex items-center">
+                <!-- Navigation Links (Desktop only - lg and up) -->
+                <div class="hidden space-x-1 lg:space-x-2 lg:-my-px lg:ms-10 lg:flex items-center">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link-liquid">
                         {{ __('Dasbor') }}
                     </x-nav-link>
@@ -59,16 +59,16 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <!-- Settings Dropdown (Desktop only - lg and up) -->
+            <div class="hidden lg:flex lg:items-center lg:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-full text-primary-700 bg-primary-50 hover:bg-primary-100 hover:text-primary-800 focus:outline-none transition ease-in-out duration-150 shadow-sm">
+                        <button class="inline-flex items-center px-3 py-2 lg:px-4 border border-transparent text-sm font-semibold rounded-full text-primary-700 bg-primary-50 hover:bg-primary-100 hover:text-primary-800 focus:outline-none transition ease-in-out duration-150 shadow-sm">
                             <div class="flex items-center gap-2">
                                 <div class="w-6 h-6 rounded-full bg-primary-200 flex items-center justify-center text-primary-800">
                                     {{ substr(Auth::user()->name, 0, 1) }}
                                 </div>
-                                {{ Auth::user()->name }}
+                                <span class="max-w-[120px] truncate">{{ Auth::user()->name }}</span>
                             </div>
 
                             <div class="ms-1">
@@ -104,8 +104,8 @@
                 </x-dropdown>
             </div>
 
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
+            <!-- Hamburger (Mobile + Tablet - below lg) -->
+            <div class="-me-2 flex items-center lg:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-primary-600 hover:text-primary-800 hover:bg-primary-50 focus:outline-none focus:bg-primary-50 focus:text-primary-800 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -116,8 +116,8 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-white/90 backdrop-blur-lg border-t border-gray-100">
+    <!-- Responsive Navigation Menu (Mobile + Tablet) -->
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden bg-white/90 backdrop-blur-lg border-t border-gray-100">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dasbor') }}

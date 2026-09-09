@@ -10,9 +10,9 @@
         <div class="absolute inset-0 islamic-pattern opacity-50"></div>
 
         <!-- Animated gradient orbs -->
-        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary-200/30 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary-200/30 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-100/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/4 -left-20 sm:-left-32 w-64 sm:w-96 h-64 sm:h-96 bg-primary-200/30 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 -right-20 sm:-right-32 w-64 sm:w-96 h-64 sm:h-96 bg-secondary-200/30 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-primary-100/20 rounded-full blur-3xl"></div>
 
         <!-- Decorative lines -->
         <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary-300/15 to-transparent"></div>

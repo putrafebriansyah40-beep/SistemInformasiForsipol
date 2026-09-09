@@ -18,10 +18,10 @@
             <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mt-6"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-12">
 
             <!-- Contact Info Cards -->
-            <div class="lg:col-span-2 space-y-6">
+            <div class="md:col-span-2 lg:col-span-2 space-y-4 sm:space-y-6">
                 <!-- Address -->
                 <div class="reveal glass-card rounded-2xl p-6 group" style="transition-delay: 0.1s;">
                     <div class="flex items-start gap-4">
@@ -89,7 +89,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="lg:col-span-3 reveal" style="transition-delay: 0.2s;">
+            <div class="md:col-span-2 lg:col-span-3 reveal" style="transition-delay: 0.2s;">
                 <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10">
                     <h3 class="text-xl font-bold font-display text-gray-800 mb-6">Kirim Pesan</h3>
 
@@ -166,13 +166,13 @@
                 <iframe
                     src="https://maps.google.com/maps?q=Politeknik%20Negeri%20Padang&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
-                    height="350"
+                    height="250"
                     style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     title="Lokasi Politeknik Negeri Padang"
-                    class="w-full">
+                    class="w-full sm:h-[350px]">
                 </iframe>
             </div>
         </div>

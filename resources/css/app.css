@@ -48,7 +48,7 @@
   }
   
   .navbar-floating {
-    @apply mt-4 mx-4 md:mx-8 rounded-2xl border border-white/50 bg-white/70 backdrop-blur-lg shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
+    @apply mt-3 mx-3 sm:mt-4 sm:mx-4 md:mx-8 rounded-2xl border border-white/50 bg-white/70 backdrop-blur-lg shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
   }
   
   .nav-link-liquid {
@@ -67,6 +67,32 @@
   
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+  }
+}
+
+/* Responsive table scroll with smooth momentum */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe area support for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Mobile card header text truncation helper */
+@media (max-width: 639px) {
+  .card-header-responsive {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+  
+  .card-header-responsive > * {
+    width: 100%;
   }
 }
 

@@ -21,7 +21,7 @@
 
             <!-- Image 1 - Large -->
             <div class="reveal sm:col-span-2 lg:col-span-2 lg:row-span-2 group relative rounded-2xl overflow-hidden shadow-lg" style="transition-delay: 0.1s;">
-                <div class="aspect-[16/10] lg:aspect-auto lg:h-full">
+                <div class="aspect-[16/10]">
                     <img src="{{ asset('images/Kajian-Rutin.jpeg') }}" alt="Kajian Rutin Keislaman"
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 </div>

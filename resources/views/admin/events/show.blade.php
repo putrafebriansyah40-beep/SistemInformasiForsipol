@@ -11,7 +11,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             
             {{-- Info Kegiatan --}}
             <div class="bg-gradient-to-r from-secondary-600 to-secondary-800 rounded-2xl shadow-sm text-white p-6 relative overflow-hidden">

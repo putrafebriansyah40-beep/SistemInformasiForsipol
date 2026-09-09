@@ -84,9 +84,9 @@
         </div>
 
         <!-- Bottom Bar -->
-        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-gray-500 text-sm">
-                &copy; {{ date('Y') }} <span class="text-primary-400">FORSIPOL</span> — Forum Studi Islam Politeknik Negeri Padang. All rights reserved.
+        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col items-center text-center sm:flex-row sm:justify-between sm:text-left gap-3 sm:gap-4">
+            <p class="text-gray-500 text-xs sm:text-sm">
+                &copy; {{ date('Y') }} <span class="text-primary-400">FORSIPOL</span> — Forum Studi Islam Politeknik Negeri Padang.
             </p>
             <p class="text-gray-600 text-xs">
                 Dibuat dengan ❤️ untuk Dakwah Kampus

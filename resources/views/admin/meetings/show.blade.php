@@ -11,7 +11,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             
             {{-- Info Rapat --}}
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl shadow-sm text-white p-6 relative overflow-hidden">
@@ -19,15 +19,15 @@
                     <svg class="w-48 h-48 transform translate-x-8 -translate-y-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
                 </div>
                 
-                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-1">{{ $meeting->nama_rapat }}</h3>
-                        <p class="text-blue-100">{{ \Carbon\Carbon::parse($meeting->waktu_rapat)->format('l, d M Y - H:i') }} WIB • {{ $meeting->lokasi ?? 'Lokasi tidak ditentukan' }}</p>
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+                    <div class="min-w-0">
+                        <h3 class="text-lg sm:text-2xl font-bold mb-1 break-words">{{ $meeting->nama_rapat }}</h3>
+                        <p class="text-blue-100 text-xs sm:text-base break-words">{{ \Carbon\Carbon::parse($meeting->waktu_rapat)->format('l, d M Y - H:i') }} WIB • {{ $meeting->lokasi ?? 'Lokasi tidak ditentukan' }}</p>
                     </div>
                     
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 text-center min-w-[200px]">
-                        <p class="text-xs text-blue-100 uppercase tracking-wider mb-1">Kode Presensi</p>
-                        <p class="text-3xl font-mono font-bold tracking-widest">{{ $meeting->kode_absen }}</p>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/20 text-center sm:min-w-[200px] shrink-0">
+                        <p class="text-[10px] sm:text-xs text-blue-100 uppercase tracking-wider mb-1">Kode Presensi</p>
+                        <p class="text-2xl sm:text-3xl font-mono font-bold tracking-widest">{{ $meeting->kode_absen }}</p>
                     </div>
                 </div>
                 
@@ -45,7 +45,7 @@
                     <h3 class="font-semibold text-gray-800">Daftar Hadir ({{ $meeting->attendances->count() }} Anggota)</h3>
                 </div>
                 
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto -webkit-overflow-scrolling-touch">
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-white border-b border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wider">

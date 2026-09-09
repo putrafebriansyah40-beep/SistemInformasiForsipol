@@ -6,10 +6,10 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="mb-4 flex justify-between items-center">
-                <p class="text-gray-600">Daftar agenda dan acara FORSIPOL</p>
-                <a href="{{ route('admin.events.create') }}" class="px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                <p class="text-gray-600 text-sm sm:text-base">Daftar agenda dan acara FORSIPOL</p>
+                <a href="{{ route('admin.events.create') }}" class="px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition shadow-sm text-sm whitespace-nowrap text-center">
                     + Tambah Kegiatan
                 </a>
             </div>
