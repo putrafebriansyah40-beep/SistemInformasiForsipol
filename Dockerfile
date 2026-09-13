@@ -1,4 +1,4 @@
-FROM php:8.3-cli
+FROM php:8.4-cli
 
 # Install system dependencies (minimal to save RAM)
 RUN apt-get update && apt-get install -y --no-install-recommends \
