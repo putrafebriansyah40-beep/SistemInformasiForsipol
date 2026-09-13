@@ -1,0 +1,18 @@
+# Railway deployment files
+Dockerfile
+railway.toml
+.dockerignore
+
+# Development files
+node_modules
+.git
+.env
+tests
+storage/logs
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+.phpunit.result.cache
+phpunit.xml
+.editorconfig
+README.md
