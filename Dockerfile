@@ -11,16 +11,14 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-# Copy composer files first (for caching)
-COPY composer.json composer.lock ./
+# Copy ALL application files first
+COPY . .
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
 
-# Copy package files and build frontend
-COPY package.json package-lock.json ./
+# Install Node dependencies and build frontend
 RUN npm ci --ignore-scripts && npm run build && rm -rf node_modules
-
-# Copy the rest of the application
-COPY . .
 
 # Run post-install scripts
 RUN composer dump-autoload --optimize
