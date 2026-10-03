@@ -30,7 +30,16 @@ putenv('LOG_CHANNEL=stderr');
 if (getenv('DATABASE_URL') || getenv('POSTGRES_URL')) {
     putenv('DB_CONNECTION=pgsql');
     if (!getenv('DB_URL')) {
-        putenv('DB_URL=' . (getenv('DATABASE_URL') ?: getenv('POSTGRES_URL')));
+        $dbUrl = getenv('DATABASE_URL') ?: getenv('POSTGRES_URL');
+        if (strpos($dbUrl, 'neon.tech') !== false && strpos($dbUrl, 'options=endpoint') === false) {
+            $host = parse_url($dbUrl, PHP_URL_HOST);
+            if ($host) {
+                $endpointId = explode('.', $host)[0];
+                $endpointId = str_replace('-pooler', '', $endpointId);
+                $dbUrl .= (strpos($dbUrl, '?') !== false ? '&' : '?') . 'options=endpoint%3D' . $endpointId;
+            }
+        }
+        putenv('DB_URL=' . $dbUrl);
     }
 }
 
