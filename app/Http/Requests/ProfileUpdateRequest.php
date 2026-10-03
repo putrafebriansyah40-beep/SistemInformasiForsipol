@@ -31,6 +31,8 @@ class ProfileUpdateRequest extends FormRequest
             'nama_bank' => ['nullable', 'string', 'max:255'],
             'rekening_bank' => ['nullable', 'string', 'max:255'],
             'atas_nama_bank' => ['nullable', 'string', 'max:255'],
+            'jurusan' => ['nullable', 'string', 'max:255'],
+            'program_studi' => ['nullable', 'string', 'max:255'],
         ];
     }
 }
