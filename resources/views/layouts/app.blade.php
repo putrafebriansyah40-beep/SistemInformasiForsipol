@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Dasbor Admin - FORSIPOL</title>
+        <link rel="icon" type="image/png" href="{{ asset('images/logo-forsipol.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +25,7 @@
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="pt-24 pb-6">
+                <header class="pt-6 sm:pt-8 pb-2 sm:pb-4">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
