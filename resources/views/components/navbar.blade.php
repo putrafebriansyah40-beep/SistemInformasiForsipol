@@ -25,12 +25,8 @@
                 
                 <div class="h-6 w-px bg-gray-300 mx-2"></div>
                 
-                @auth
-                    <a href="{{ route('dashboard') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-medium text-primary-700 bg-primary-50 border border-primary-200 hover:bg-primary-100 hover:border-primary-300 transition-all duration-300">Login</a>
-                    <a href="{{ route('register') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Gabung sekarang</a>
-                @endauth
+                <a href="{{ route('login') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-medium text-primary-700 bg-primary-50 border border-primary-200 hover:bg-primary-100 hover:border-primary-300 transition-all duration-300">Login</a>
+                <a href="{{ route('register') }}" class="ml-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105">Gabung sekarang</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -57,12 +53,8 @@
             
             <div class="h-px bg-gray-200 my-4 mx-4"></div>
             
-            @auth
-                <a href="{{ route('dashboard') }}" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md">📱 Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-medium text-primary-700 bg-primary-50 border border-primary-200 hover:bg-primary-100">🔑 Login</a>
-                <a href="{{ route('register') }}" class="block mx-4 mt-3 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md">✨ Gabung sekarang</a>
-            @endauth
+            <a href="{{ route('login') }}" class="block mx-4 mt-4 px-5 py-3 rounded-full text-center text-base font-medium text-primary-700 bg-primary-50 border border-primary-200 hover:bg-primary-100">🔑 Login</a>
+            <a href="{{ route('register') }}" class="block mx-4 mt-3 px-5 py-3 rounded-full text-center text-base font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md">✨ Gabung sekarang</a>
         </div>
     </div>
 </nav>
