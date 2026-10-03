@@ -5,7 +5,7 @@
             <img src="{{ asset('images/logo-forsipol.png') }}" alt="Logo Forsipol" class="h-16 w-auto">
         </div>
         <h2 class="text-2xl font-bold font-display text-gray-900">Login</h2>
-        <p class="text-sm text-gray-500 mt-2">Masuk ke <span class="font-semibold text-primary-600">SiSiPol</span></p>
+        <p class="text-sm text-gray-500 mt-2">Masuk ke <span class="font-semibold text-primary-600">FORSIPOL-KM-PNP</span></p>
         <p class="text-xs text-gray-400 mt-1">(Sistem Informasi Forsipol)</p>
     </div>
 

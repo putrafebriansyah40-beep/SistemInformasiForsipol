@@ -8,8 +8,8 @@
                 <img src="{{ asset('images/logo-forsipol.png') }}" alt="Logo FORSIPOL"
                      class="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-110">
                 <div class="hidden sm:block">
-                    <span class="text-lg font-bold font-display text-gradient leading-tight block">FORSIPOL</span>
-                    <span class="text-xs text-gray-500 leading-tight block">Politeknik Negeri Padang</span>
+                    <span class="text-lg font-bold font-display text-gradient leading-tight block">FORSIPOL-KM-PNP</span>
+                    <span class="text-xs text-gray-500 leading-tight block">Forum Studi Islam Politeknik</span>
                 </div>
             </a>
 
