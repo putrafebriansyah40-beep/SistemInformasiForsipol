@@ -26,7 +26,7 @@
                 <div class="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4">
                     <h3 class="text-lg font-semibold text-white flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-                        Pengaturan Calon Anggota (Oprec)
+                        Pengaturan Calon Anggota (Open Recruitment)
                     </h3>
                 </div>
                 
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 
-                                <span class="ml-3 text-sm font-semibold text-gray-700">Buka Form Pendaftaran (Oprec)</span>
+                                <span class="ml-3 text-sm font-semibold text-gray-700">Buka Form Pendaftaran (Open Recruitment)</span>
                             </div>
                             <p class="mt-2 text-sm text-gray-500 mb-4">Jika dinonaktifkan, calon anggota tidak akan bisa mengakses halaman pendaftaran (register).</p>
                         </div>
