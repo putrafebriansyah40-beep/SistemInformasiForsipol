@@ -62,9 +62,19 @@
             @endif
         </div>
 
-        <div>
-            <x-input-label for="no_whatsapp" :value="__('No. WhatsApp')" />
-            <x-text-input id="no_whatsapp" name="no_whatsapp" type="text" class="mt-1 block w-full" :value="old('no_whatsapp', $user->no_whatsapp)" />
+        @php
+            $wa = old('no_whatsapp', $user->no_whatsapp);
+            $wa = preg_replace('/^(\+62|62|0)/', '', $wa);
+        @endphp
+        <div x-data="{ waValue: '{{ $wa }}' }">
+            <x-input-label for="no_whatsapp_visible" :value="__('No. WhatsApp')" />
+            <div class="mt-1 flex rounded-xl shadow-sm">
+                <span class="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-gray-200 bg-gray-50 text-gray-700 font-medium sm:text-sm">
+                    +62
+                </span>
+                <input type="hidden" name="no_whatsapp" x-bind:value="waValue ? '62' + waValue.replace(/^0+/, '') : ''" />
+                <input id="no_whatsapp_visible" type="text" x-model="waValue" class="flex-1 block w-full rounded-none rounded-r-xl border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white transition duration-200 px-4 py-3 sm:text-sm" placeholder="81234567890" />
+            </div>
             <x-input-error class="mt-2" :messages="$errors->get('no_whatsapp')" />
         </div>
 

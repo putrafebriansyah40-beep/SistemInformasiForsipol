@@ -1,4 +1,8 @@
 <x-guest-layout>
+    @php
+        $wa = old('whatsapp');
+        $wa = $wa ? preg_replace('/^(\+62|62|0)/', '', $wa) : '';
+    @endphp
     <form method="POST" action="{{ route('register') }}" x-data="{
         name: '{{ old('name') }}',
         nim: '{{ old('nim') }}',
@@ -6,7 +10,7 @@
         jurusan: '{{ old('jurusan') }}',
         program_studi: '{{ old('program_studi') }}',
         email: '{{ old('email') }}',
-        whatsapp: '{{ old('whatsapp') }}',
+        whatsapp: '{{ $wa }}',
         password: '',
         password_confirmation: '',
         
@@ -123,8 +127,14 @@
 
         <!-- WhatsApp Number -->
         <div class="mt-4">
-            <x-input-label for="whatsapp" :value="__('Nomor WhatsApp')" />
-            <x-text-input id="whatsapp" class="block mt-1 w-full" type="text" name="whatsapp" :value="old('whatsapp')" required placeholder="Contoh: 081234567890" x-model="whatsapp" />
+            <x-input-label for="whatsapp_visible" :value="__('Nomor WhatsApp')" />
+            <div class="mt-1 flex rounded-xl shadow-sm">
+                <span class="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-gray-200 bg-gray-50 text-gray-700 font-medium sm:text-sm">
+                    +62
+                </span>
+                <input type="hidden" name="whatsapp" x-bind:value="whatsapp ? '62' + whatsapp.replace(/^0+/, '') : ''" />
+                <input id="whatsapp_visible" class="flex-1 block w-full rounded-none rounded-r-xl border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white transition duration-200 px-4 py-3 sm:text-sm" type="text" placeholder="81234567890" x-model="whatsapp" />
+            </div>
             <x-input-error :messages="$errors->get('whatsapp')" class="mt-2" />
         </div>
 
