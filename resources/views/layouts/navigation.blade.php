@@ -14,46 +14,46 @@
                 </div>
 
                 <!-- Navigation Links (Desktop only - lg and up) -->
-                <div class="hidden space-x-1 lg:space-x-2 lg:-my-px lg:ms-10 lg:flex items-center">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link-liquid">
+                <div class="hidden space-x-0 lg:space-x-1 lg:-my-px lg:ms-4 lg:flex items-center">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link-liquid whitespace-nowrap">
                         {{ __('Dasbor') }}
                     </x-nav-link>
                     
                     @if(Auth::user()->role === 'admin')
-                        <x-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.*')" class="nav-link-liquid">
+                        <x-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.*')" class="nav-link-liquid whitespace-nowrap">
                             {{ __('Anggota') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.pengkaderans.index')" :active="request()->routeIs('admin.pengkaderans.*')" class="nav-link-liquid">
+                        <x-nav-link :href="route('admin.pengkaderans.index')" :active="request()->routeIs('admin.pengkaderans.*')" class="nav-link-liquid whitespace-nowrap">
                             {{ __('Pengkaderan') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.events.index')" :active="request()->routeIs('admin.events.*')" class="nav-link-liquid">
+                        <x-nav-link :href="route('admin.events.index')" :active="request()->routeIs('admin.events.*')" class="nav-link-liquid whitespace-nowrap">
                             {{ __('Kegiatan') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.meetings.index')" :active="request()->routeIs('admin.meetings.*')" class="nav-link-liquid">
-                            {{ __('Rapat & Presensi') }}
+                        <x-nav-link :href="route('admin.meetings.index')" :active="request()->routeIs('admin.meetings.*')" class="nav-link-liquid whitespace-nowrap">
+                            {{ __('Rapat') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.settings.index')" :active="request()->routeIs('admin.settings.*')" class="nav-link-liquid">
+                        <x-nav-link :href="route('admin.settings.index')" :active="request()->routeIs('admin.settings.*')" class="nav-link-liquid whitespace-nowrap">
                             {{ __('Pengaturan') }}
                         </x-nav-link>
                     @endif
 
-                    <x-nav-link :href="route('member.attendances.create')" :active="request()->routeIs('member.attendances.*')" class="nav-link-liquid">
+                    <x-nav-link :href="route('member.attendances.create')" :active="request()->routeIs('member.attendances.*')" class="nav-link-liquid whitespace-nowrap">
                         {{ __('Presensi') }}
                     </x-nav-link>
                     @if(Auth::user()->role !== 'calon_anggota')
-                    <x-nav-link :href="route('member.cash-payments.create')" :active="request()->routeIs('member.cash-payments.*')" class="nav-link-liquid">
+                    <x-nav-link :href="route('member.cash-payments.create')" :active="request()->routeIs('member.cash-payments.*')" class="nav-link-liquid whitespace-nowrap">
                         {{ __('Bayar Kas') }}
                     </x-nav-link>
                     @endif
                     @if(in_array(Auth::user()->role, ['bendahara', 'admin']))
-                        <x-nav-link :href="route('bendahara.cash-payments.index')" :active="request()->routeIs('bendahara.cash-payments.*')" class="nav-link-liquid">
-                            {{ __('Keuangan Kas') }}
+                        <x-nav-link :href="route('bendahara.cash-payments.index')" :active="request()->routeIs('bendahara.cash-payments.*')" class="nav-link-liquid whitespace-nowrap">
+                            {{ __('Kas Umum') }}
                         </x-nav-link>
                     @endif
 
                     @if(Auth::user()->role === 'bendahara')
-                        <x-nav-link :href="route('bendahara.profile.edit')" :active="request()->routeIs('bendahara.profile.*')" class="nav-link-liquid">
-                            {{ __('Rekening Kas') }}
+                        <x-nav-link :href="route('bendahara.profile.edit')" :active="request()->routeIs('bendahara.profile.*')" class="nav-link-liquid whitespace-nowrap">
+                            {{ __('Rekening') }}
                         </x-nav-link>
                     @endif
                 </div>
