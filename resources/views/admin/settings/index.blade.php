@@ -43,12 +43,14 @@
                                 <input type="hidden" name="registration_open" x-bind:value="on ? '1' : '0'">
                                 
                                 <!-- Track -->
-                                <div class="relative w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"
-                                     x-bind:class="on ? 'bg-blue-600' : 'bg-gray-300'">
+                                <div class="relative rounded-full transition-colors duration-300 ease-in-out"
+                                     style="width: 48px; height: 24px;"
+                                     x-bind:style="on ? 'background-color: #2563eb;' : 'background-color: #d1d5db;'">
                                     
                                     <!-- Thumb -->
-                                    <div class="absolute top-0.5 left-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 ease-in-out shadow-sm"
-                                         x-bind:class="on ? 'translate-x-6' : 'translate-x-0'">
+                                    <div class="absolute bg-white rounded-full transition-transform duration-300 ease-in-out shadow-md"
+                                         style="width: 20px; height: 20px; top: 2px; left: 2px;"
+                                         x-bind:style="on ? 'transform: translateX(24px);' : 'transform: translateX(0);'">
                                     </div>
                                 </div>
                                 
