@@ -82,34 +82,28 @@
                         <p class="font-medium text-gray-900 mt-1">{{ $member->angkatan ?? '-' }}</p>
                     </div>
 
-                    <!-- Status Kaderisasi -->
-                    <div class="mb-5">
-                        <x-input-label :value="__('Status Lulus Pengkaderan')" class="mb-2" />
-                        <div class="space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                            @if($member->role !== 'calon_anggota')
-                                <input type="hidden" name="lulus_simba" value="{{ $member->lulus_simba ? '1' : '' }}">
-                                <input type="hidden" name="lulus_panda" value="{{ $member->lulus_panda ? '1' : '' }}">
-                                <input type="hidden" name="lulus_imt" value="{{ $member->lulus_imt ? '1' : '' }}">
-                                <input type="hidden" name="lulus_mukhayyam" value="{{ $member->lulus_mukhayyam ? '1' : '' }}">
-                            @endif
-
-                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
-                                <input type="checkbox" name="lulus_simba" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_simba', $member->lulus_simba) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                    <!-- Status Kaderisasi (Otomatis) -->
+                    <div class="mb-8 bg-gray-50 p-5 rounded-xl border border-gray-100">
+                        <x-input-label :value="__('Status Lulus Pengkaderan')" class="text-xs text-gray-500 mb-3" />
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-not-allowed opacity-70">
+                                <input type="checkbox" disabled class="rounded border-gray-300 text-primary-600 shadow-sm" {{ $member->role !== 'calon_anggota' || $member->lulus_simba ? 'checked' : '' }}> 
                                 <span class="text-sm text-gray-700">SIMBA</span>
                             </label>
-                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
-                                <input type="checkbox" name="lulus_panda" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_panda', $member->lulus_panda) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                            <label class="flex items-center gap-2 cursor-not-allowed opacity-70">
+                                <input type="checkbox" disabled class="rounded border-gray-300 text-primary-600 shadow-sm" {{ $member->role !== 'calon_anggota' || $member->lulus_panda ? 'checked' : '' }}> 
                                 <span class="text-sm text-gray-700">PANDA</span>
                             </label>
-                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
-                                <input type="checkbox" name="lulus_imt" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_imt', $member->lulus_imt) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                            <label class="flex items-center gap-2 cursor-not-allowed opacity-70">
+                                <input type="checkbox" disabled class="rounded border-gray-300 text-primary-600 shadow-sm" {{ $member->role !== 'calon_anggota' || $member->lulus_imt ? 'checked' : '' }}> 
                                 <span class="text-sm text-gray-700">IMT</span>
                             </label>
-                            <label class="flex items-center gap-2 {{ $member->role !== 'calon_anggota' ? 'cursor-not-allowed opacity-70' : 'cursor-pointer' }}">
-                                <input type="checkbox" name="lulus_mukhayyam" value="1" class="rounded border-gray-300 text-primary-600 shadow-sm focus:ring-primary-500 disabled:opacity-50" {{ old('lulus_mukhayyam', $member->lulus_mukhayyam) ? 'checked' : '' }} {{ $member->role !== 'calon_anggota' ? 'disabled' : '' }}> 
+                            <label class="flex items-center gap-2 cursor-not-allowed opacity-70">
+                                <input type="checkbox" disabled class="rounded border-gray-300 text-primary-600 shadow-sm" {{ $member->role !== 'calon_anggota' || $member->lulus_mukhayyam ? 'checked' : '' }}> 
                                 <span class="text-sm text-gray-700">Mukhayyam</span>
                             </label>
                         </div>
+                        <p class="text-[11px] text-gray-500 mt-3 italic">*Status kaderisasi diperbarui secara otomatis berdasarkan sistem presensi. Anggota Penuh otomatis tervalidasi.</p>
                     </div>
 
                     <!-- Password tidak bisa diubah oleh admin -->

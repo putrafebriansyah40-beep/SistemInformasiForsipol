@@ -71,11 +71,6 @@ class MemberController extends Controller
             unset($validated['password']);
         }
 
-        $validated['lulus_simba'] = $request->boolean('lulus_simba');
-        $validated['lulus_panda'] = $request->boolean('lulus_panda');
-        $validated['lulus_imt'] = $request->boolean('lulus_imt');
-        $validated['lulus_mukhayyam'] = $request->boolean('lulus_mukhayyam');
-
         $member->update($validated);
 
         return redirect()->route('admin.members.index')

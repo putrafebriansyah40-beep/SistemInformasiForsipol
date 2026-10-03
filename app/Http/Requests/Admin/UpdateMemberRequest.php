@@ -28,10 +28,6 @@ class UpdateMemberRequest extends FormRequest
         return [
             'jabatan' => ['nullable', 'string', 'max:255'],
             'departemen' => ['nullable', 'string', 'max:255'],
-            'lulus_simba' => ['nullable', 'boolean'],
-            'lulus_panda' => ['nullable', 'boolean'],
-            'lulus_imt' => ['nullable', 'boolean'],
-            'lulus_mukhayyam' => ['nullable', 'boolean'],
         ];
     }
 }
