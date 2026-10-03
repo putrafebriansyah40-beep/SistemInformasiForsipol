@@ -44,13 +44,11 @@
                                 
                                 <!-- Track -->
                                 <div class="relative rounded-full transition-colors duration-300 ease-in-out"
-                                     style="width: 48px; height: 24px;"
-                                     x-bind:style="on ? 'background-color: #2563eb;' : 'background-color: #d1d5db;'">
+                                     x-bind:style="`width: 48px; height: 24px; background-color: ${on ? '#2563eb' : '#d1d5db'};`">
                                     
                                     <!-- Thumb -->
                                     <div class="absolute bg-white rounded-full transition-transform duration-300 ease-in-out shadow-md"
-                                         style="width: 20px; height: 20px; top: 2px; left: 2px;"
-                                         x-bind:style="on ? 'transform: translateX(24px);' : 'transform: translateX(0);'">
+                                         x-bind:style="`width: 20px; height: 20px; top: 2px; left: 2px; transform: ${on ? 'translateX(24px)' : 'translateX(0)'};`">
                                     </div>
                                 </div>
                                 
