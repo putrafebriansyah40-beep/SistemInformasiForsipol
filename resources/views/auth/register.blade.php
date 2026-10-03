@@ -15,9 +15,9 @@
         password_confirmation: '',
         
         programStudiList: {
-            'Teknik Sipil': ['D3 Teknik Sipil', 'D4 Manajemen Rekayasa Konstruksi', 'D4 Perancangan Jalan dan Jembatan'],
+            'Teknik Sipil': ['D3 Teknik Sipil', 'D4 Manajemen Rekayasa Konstruksi', 'D4 Perancangan Jalan dan Jembatan', 'D4 Perancangan Irigasi dan Rawa'],
             'Teknik Mesin': ['D3 Teknik Mesin', 'D3 Teknik Alat Berat', 'D4 Teknik Manufaktur', 'D4 Rekayasa Perancangan Mekanik'],
-            'Teknik Elektro': ['D3 Teknik Elektronika', 'D3 Teknik Listrik', 'D3 Teknik Telekomunikasi', 'D4 Teknik Elektronika Industri', 'D4 Teknik Telekomunikasi'],
+            'Teknik Elektro': ['D3 Teknik Elektronika', 'D3 Teknik Listrik', 'D3 Teknik Telekomunikasi', 'D4 Teknik Elektronika Industri', 'D4 Teknik Telekomunikasi', 'D4 Teknologi Rekayasa Instalasi Listrik'],
             'Teknologi Informasi': ['D3 Teknik Komputer', 'D3 Manajemen Informatika', 'D4 Teknologi Rekayasa Perangkat Lunak', 'D4 Animasi'],
             'Akuntansi': ['D3 Akuntansi', 'D4 Akuntansi'],
             'Administrasi Niaga': ['D3 Administrasi Bisnis', 'D3 Usaha Perjalanan Wisata', 'D4 Bisnis Digital', 'D4 Logistik Perdagangan Internasional', 'D4 Destinasi Pariwisata'],
