@@ -72,8 +72,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/run-migrations', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
-    return nl2br(\Illuminate\Support\Facades\Artisan::output());
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+    return "Seeders run successfully! " . nl2br(\Illuminate\Support\Facades\Artisan::output());
 });
 
 require __DIR__.'/auth.php';
