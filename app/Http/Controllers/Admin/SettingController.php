@@ -22,7 +22,7 @@ class SettingController extends Controller
         ]);
 
         Setting::set('whatsapp_group_link', $request->whatsapp_group_link);
-        Setting::set('registration_open', $request->has('registration_open') ? '1' : '0');
+        Setting::set('registration_open', $request->input('registration_open') === '1' ? '1' : '0');
 
         return redirect()->back()->with('success', 'Pengaturan berhasil diperbarui.');
     }
