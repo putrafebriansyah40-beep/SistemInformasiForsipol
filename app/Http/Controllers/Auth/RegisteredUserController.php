@@ -20,6 +20,10 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        if (\App\Models\Setting::get('registration_open', '1') !== '1') {
+            return view('auth.register-closed');
+        }
+
         return view('auth.register');
     }
 
@@ -30,6 +34,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (\App\Models\Setting::get('registration_open', '1') !== '1') {
+            abort(403, 'Pendaftaran saat ini ditutup.');
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20', 'unique:'.User::class],
