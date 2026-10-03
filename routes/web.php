@@ -71,4 +71,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/run-migrations', function () {
+    \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+    return nl2br(\Illuminate\Support\Facades\Artisan::output());
+});
+
 require __DIR__.'/auth.php';
