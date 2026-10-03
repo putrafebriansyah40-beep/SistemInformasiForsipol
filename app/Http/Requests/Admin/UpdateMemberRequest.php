@@ -26,16 +26,8 @@ class UpdateMemberRequest extends FormRequest
         $memberId = $this->route('member') ? $this->route('member')->id : null;
 
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'nim' => ['nullable', 'string', 'max:30', Rule::unique('users', 'nim')->ignore($memberId)],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($memberId)],
-            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'no_whatsapp' => ['nullable', 'string', 'max:20'],
-            'jenis_kelamin' => ['nullable', 'in:L,P'],
-            'role' => ['required', 'in:admin,bendahara,member,calon_anggota'],
             'jabatan' => ['nullable', 'string', 'max:255'],
             'departemen' => ['nullable', 'string', 'max:255'],
-            'angkatan' => ['nullable', 'string', 'max:255'],
             'lulus_simba' => ['nullable', 'boolean'],
             'lulus_panda' => ['nullable', 'boolean'],
             'lulus_imt' => ['nullable', 'boolean'],
