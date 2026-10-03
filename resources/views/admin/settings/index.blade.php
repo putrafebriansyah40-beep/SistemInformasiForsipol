@@ -36,20 +36,23 @@
                         @method('PUT')
                         
                         <div class="mb-6">
-                            <div x-data="{ on: {{ old('registration_open', $registration_open ?? '1') == '1' ? 'true' : 'false' }} }" class="flex items-center">
-                                <input type="hidden" name="registration_open" :value="on ? '1' : '0'">
-                                <button type="button" 
-                                        @click="on = !on" 
-                                        :class="on ? 'bg-primary-600' : 'bg-gray-200'" 
-                                        class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" 
-                                        role="switch" 
-                                        :aria-checked="on.toString()">
-                                    <span class="sr-only">Toggle pendaftaran</span>
-                                    <span aria-hidden="true" 
-                                          :class="on ? 'translate-x-5' : 'translate-x-0'" 
-                                          class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
-                                </button>
-                                <span class="ml-3 text-sm font-semibold text-gray-700" @click="on = !on" style="cursor: pointer;">Buka Form Pendaftaran (Oprec)</span>
+                            <div x-data="{ on: {{ old('registration_open', $registration_open ?? '1') == '1' ? 'true' : 'false' }} }" 
+                                 class="flex items-center cursor-pointer select-none" 
+                                 @click="on = !on">
+                                
+                                <input type="hidden" name="registration_open" x-bind:value="on ? '1' : '0'">
+                                
+                                <!-- Track -->
+                                <div class="relative w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"
+                                     x-bind:class="on ? 'bg-blue-600' : 'bg-gray-300'">
+                                    
+                                    <!-- Thumb -->
+                                    <div class="absolute top-0.5 left-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 ease-in-out shadow-sm"
+                                         x-bind:class="on ? 'translate-x-6' : 'translate-x-0'">
+                                    </div>
+                                </div>
+                                
+                                <span class="ml-3 text-sm font-semibold text-gray-700">Buka Form Pendaftaran (Oprec)</span>
                             </div>
                             <p class="mt-2 text-sm text-gray-500 mb-4">Jika dinonaktifkan, calon anggota tidak akan bisa mengakses halaman pendaftaran (register).</p>
                         </div>
