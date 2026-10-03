@@ -71,9 +71,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/run-migrations', function () {
-    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-    return "Seeders run successfully! " . nl2br(\Illuminate\Support\Facades\Artisan::output());
-});
-
 require __DIR__.'/auth.php';
