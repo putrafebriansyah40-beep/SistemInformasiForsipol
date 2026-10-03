@@ -53,4 +53,7 @@ if (getenv('DATABASE_URL') || getenv('POSTGRES_URL')) {
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
+// Force HTTPS for assets (Vercel edge termination workaround)
+$_SERVER['HTTPS'] = 'on';
+
 require __DIR__ . '/../public/index.php';
