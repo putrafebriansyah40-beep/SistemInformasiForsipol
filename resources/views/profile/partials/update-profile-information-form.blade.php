@@ -72,8 +72,8 @@
             <x-input-label for="jenis_kelamin" :value="__('Jenis Kelamin')" />
             <select id="jenis_kelamin" name="jenis_kelamin" class="mt-1 block w-full border-gray-200 bg-gray-50/50 backdrop-blur-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 focus:bg-white rounded-xl shadow-sm transition duration-200 px-4 py-3">
                 <option value="">— Pilih —</option>
-                <option value="Ikhwan" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Ikhwan' ? 'selected' : '' }}>Ikhwan</option>
-                <option value="Akhwat" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'Akhwat' ? 'selected' : '' }}>Akhwat</option>
+                <option value="L" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'L' ? 'selected' : '' }}>Ikhwan</option>
+                <option value="P" {{ old('jenis_kelamin', $user->jenis_kelamin) == 'P' ? 'selected' : '' }}>Akhwat</option>
             </select>
             <x-input-error class="mt-2" :messages="$errors->get('jenis_kelamin')" />
         </div>

@@ -31,7 +31,7 @@ class UpdateMemberRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($memberId)],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
             'no_whatsapp' => ['nullable', 'string', 'max:20'],
-            'jenis_kelamin' => ['nullable', 'in:Ikhwan,Akhwat'],
+            'jenis_kelamin' => ['nullable', 'in:L,P'],
             'role' => ['required', 'in:admin,bendahara,member,calon_anggota'],
             'jabatan' => ['nullable', 'string', 'max:255'],
             'departemen' => ['nullable', 'string', 'max:255'],

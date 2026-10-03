@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20', 'unique:'.User::class],
-            'jenis_kelamin' => ['required', 'string', 'in:Ikhwan,Akhwat'],
+            'jenis_kelamin' => ['required', 'string', 'in:L,P'],
             'jurusan' => ['required', 'string', 'max:255'],
             'program_studi' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
