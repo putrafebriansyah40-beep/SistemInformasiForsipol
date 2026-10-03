@@ -65,7 +65,7 @@
                                 <td class="p-3 sm:p-4">
                                     <div class="flex flex-wrap gap-1 mb-2">
                                         @if($member->role !== 'calon_anggota')
-                                            <span class="text-[10px] bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full font-medium">Telah melaksanakan semua kaderisasi</span>
+                                            <span class="text-[10px] bg-green-50 text-green-700 border border-green-200 px-1.5 py-0.5 rounded text-center leading-tight">Telah melaksanakan semua kaderisasi</span>
                                         @else
                                             @if($member->lulus_simba) <span class="text-[10px] bg-green-50 text-green-700 border border-green-200 px-1.5 py-0.5 rounded">SIMBA</span> @endif
                                             @if($member->lulus_panda) <span class="text-[10px] bg-green-50 text-green-700 border border-green-200 px-1.5 py-0.5 rounded">PANDA</span> @endif
