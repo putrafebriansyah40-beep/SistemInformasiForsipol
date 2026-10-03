@@ -29,17 +29,23 @@ putenv('LOG_CHANNEL=stderr');
 
 if (getenv('DATABASE_URL') || getenv('POSTGRES_URL')) {
     putenv('DB_CONNECTION=pgsql');
-    if (!getenv('DB_URL')) {
+    if (!getenv('DB_HOST')) {
         $dbUrl = getenv('DATABASE_URL') ?: getenv('POSTGRES_URL');
-        if (strpos($dbUrl, 'neon.tech') !== false && strpos($dbUrl, 'options=endpoint') === false) {
-            $host = parse_url($dbUrl, PHP_URL_HOST);
-            if ($host) {
-                $endpointId = explode('.', $host)[0];
-                $endpointId = str_replace('-pooler', '', $endpointId);
-                $dbUrl .= (strpos($dbUrl, '?') !== false ? '&' : '?') . 'options=endpoint%3D' . $endpointId;
-            }
+        if (strpos($dbUrl, 'neon.tech') !== false) {
+            $parsed = parse_url($dbUrl);
+            $host = $parsed['host'];
+            $endpointId = str_replace('-pooler', '', explode('.', $host)[0]);
+            
+            putenv('DB_HOST=' . $host);
+            putenv('DB_PORT=' . ($parsed['port'] ?? 5432));
+            putenv('DB_USERNAME=' . $parsed['user']);
+            putenv('DB_PASSWORD=' . $parsed['pass']);
+            putenv('DB_DATABASE=' . ltrim($parsed['path'], '/'));
+            // Genius hack: inject options into DSN via sslmode to avoid Laravel parser crash
+            putenv("DB_SSLMODE=require;options='endpoint=" . $endpointId . "'");
+        } else {
+            putenv('DB_URL=' . $dbUrl);
         }
-        putenv('DB_URL=' . $dbUrl);
     }
 }
 
