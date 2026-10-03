@@ -36,11 +36,21 @@
                         @method('PUT')
                         
                         <div class="mb-6">
-                            <label class="relative inline-flex items-center cursor-pointer">
-                                <input type="checkbox" name="registration_open" value="1" class="sr-only peer" {{ old('registration_open', $registration_open ?? '1') == '1' ? 'checked' : '' }}>
-                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-                                <span class="ml-3 text-sm font-semibold text-gray-700">Buka Form Pendaftaran (Oprec)</span>
-                            </label>
+                            <div x-data="{ on: {{ old('registration_open', $registration_open ?? '1') == '1' ? 'true' : 'false' }} }" class="flex items-center">
+                                <input type="hidden" name="registration_open" :value="on ? '1' : '0'">
+                                <button type="button" 
+                                        @click="on = !on" 
+                                        :class="on ? 'bg-primary-600' : 'bg-gray-200'" 
+                                        class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" 
+                                        role="switch" 
+                                        :aria-checked="on.toString()">
+                                    <span class="sr-only">Toggle pendaftaran</span>
+                                    <span aria-hidden="true" 
+                                          :class="on ? 'translate-x-5' : 'translate-x-0'" 
+                                          class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                                </button>
+                                <span class="ml-3 text-sm font-semibold text-gray-700" @click="on = !on" style="cursor: pointer;">Buka Form Pendaftaran (Oprec)</span>
+                            </div>
                             <p class="mt-2 text-sm text-gray-500 mb-4">Jika dinonaktifkan, calon anggota tidak akan bisa mengakses halaman pendaftaran (register).</p>
                         </div>
 
