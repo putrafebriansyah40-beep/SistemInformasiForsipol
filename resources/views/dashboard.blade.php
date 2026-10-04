@@ -84,6 +84,11 @@
                             <label class="text-xs font-medium text-gray-400 uppercase tracking-wider">Nama Lengkap</label>
                             <p class="mt-1 text-gray-900 font-medium text-sm sm:text-base truncate">{{ $user->name }}</p>
                         </div>
+                        {{-- NIM --}}
+                        <div>
+                            <label class="text-xs font-medium text-gray-400 uppercase tracking-wider">NIM</label>
+                            <p class="mt-1 text-gray-900 font-medium text-sm sm:text-base truncate">{{ $user->nim ?? '-' }}</p>
+                        </div>
                         {{-- Email --}}
                         <div>
                             <label class="text-xs font-medium text-gray-400 uppercase tracking-wider">Email</label>
