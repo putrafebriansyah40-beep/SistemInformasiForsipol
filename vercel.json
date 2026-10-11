@@ -15,6 +15,10 @@
     ],
     "routes": [
         {
+            "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)",
+            "dest": "/public/$1"
+        },
+        {
             "src": "/(build|images|assets|js|css)/(.*)",
             "dest": "/public/$1/$2"
         },

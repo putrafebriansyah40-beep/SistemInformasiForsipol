@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /bendahara
+Disallow: /member
+Disallow: /dashboard
+
+Sitemap: https://forsipol-km-pnp.vercel.app/sitemap.xml

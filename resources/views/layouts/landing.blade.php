@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORSIPOL-KM-PNP</title>
+    <title>FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo-forsipol.png') }}">
+    <link rel="canonical" href="https://forsipol-km-pnp.vercel.app/">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Website Resmi FORSIPOL (Forum Studi Islam Politeknik) KM PNP - Unit Kegiatan Mahasiswa Kerohanian Islam di Politeknik Negeri Padang. Wadah dakwah, ukhuwah, dan pembinaan karakter Islami mahasiswa.">
+    <meta name="keywords" content="FORSIPOL, FORSIPOL PNP, FORSIPOL KM PNP, Forum Studi Islam Politeknik, Politeknik Negeri Padang, UKM Kerohanian Islam PNP, Mahasiswa PNP, Kampus PNP">
+    <meta name="author" content="FORSIPOL KM PNP">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://forsipol-km-pnp.vercel.app/">
+    <meta property="og:title" content="FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang">
+    <meta property="og:description" content="Website Resmi FORSIPOL KM PNP - Unit Kegiatan Mahasiswa Kerohanian Islam Politeknik Negeri Padang.">
+    <meta property="og:image" content="{{ asset('images/logo-forsipol.png') }}">
+    <meta property="og:site_name" content="FORSIPOL KM PNP">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://forsipol-km-pnp.vercel.app/">
+    <meta name="twitter:title" content="FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang">
+    <meta name="twitter:description" content="Website Resmi FORSIPOL KM PNP - Unit Kegiatan Mahasiswa Kerohanian Islam Politeknik Negeri Padang.">
+    <meta name="twitter:image" content="{{ asset('images/logo-forsipol.png') }}">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
