@@ -15,7 +15,7 @@
     ],
     "routes": [
         {
-            "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)",
+            "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico|googlead4bdcab924d1c0e\\.html)",
             "dest": "/public/$1"
         },
         {
