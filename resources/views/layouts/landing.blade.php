@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logo-forsipol.png') }}">
+    
+    <!-- Favicon & Icons (Google Search & Mobile Devices) -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/favicon-192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('images/logo-forsipol-square.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
     <link rel="canonical" href="https://forsipol-km-pnp.vercel.app/">
 
     <!-- SEO Meta Tags -->
@@ -18,7 +23,7 @@
     <meta property="og:url" content="https://forsipol-km-pnp.vercel.app/">
     <meta property="og:title" content="FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang">
     <meta property="og:description" content="Website Resmi FORSIPOL KM PNP - Unit Kegiatan Mahasiswa Kerohanian Islam Politeknik Negeri Padang.">
-    <meta property="og:image" content="{{ asset('images/logo-forsipol.png') }}">
+    <meta property="og:image" content="{{ asset('images/logo-forsipol-square.png') }}">
     <meta property="og:site_name" content="FORSIPOL KM PNP">
     <meta property="og:locale" content="id_ID">
 
@@ -27,8 +32,28 @@
     <meta name="twitter:url" content="https://forsipol-km-pnp.vercel.app/">
     <meta name="twitter:title" content="FORSIPOL KM PNP | Forum Studi Islam Politeknik Negeri Padang">
     <meta name="twitter:description" content="Website Resmi FORSIPOL KM PNP - Unit Kegiatan Mahasiswa Kerohanian Islam Politeknik Negeri Padang.">
-    <meta name="twitter:image" content="{{ asset('images/logo-forsipol.png') }}">
+    <meta name="twitter:image" content="{{ asset('images/logo-forsipol-square.png') }}">
     
+    <!-- Structured Data (JSON-LD) for Google Site Name & Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FORSIPOL KM PNP",
+        "alternateName": ["FORSIPOL", "FORSIPOL PNP", "Forum Studi Islam Politeknik Negeri Padang"],
+        "url": "https://forsipol-km-pnp.vercel.app/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FORSIPOL KM PNP",
+        "url": "https://forsipol-km-pnp.vercel.app/",
+        "logo": "{{ asset('images/logo-forsipol-square.png') }}"
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
