@@ -37,8 +37,8 @@
     <!-- Structured Data (JSON-LD) for Google Site Name & Organization -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
         "name": "FORSIPOL KM PNP",
         "alternateName": ["FORSIPOL", "FORSIPOL PNP", "Forum Studi Islam Politeknik Negeri Padang"],
         "url": "https://forsipol-km-pnp.vercel.app/"
@@ -46,8 +46,8 @@
     </script>
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
         "name": "FORSIPOL KM PNP",
         "url": "https://forsipol-km-pnp.vercel.app/",
         "logo": "{{ asset('images/logo-forsipol-square.png') }}"
